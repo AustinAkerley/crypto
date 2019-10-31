@@ -3,4 +3,4 @@ def eea(x, y):
     s=0
     p =0
     q= 0
-    return [r,s,p,q]
+    return [r,s,p,q] # testing
