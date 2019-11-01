@@ -24,5 +24,19 @@ class TestFastPower(unittest.TestCase):
         result = 1369450571
         self.assertEqual(fast_power.fast_power(x, e, m), result)
 
+    def test_fast_power_4(self):
+        x = 11
+        e = 7234592359 -1
+        m = 7234592359
+        result = 1
+        self.assertEqual(fast_power.fast_power(x, e, m), result)
+
+    def test_fast_power_5(self):
+        x = 11
+        e = 7234592359
+        m = 7234592359
+        result = 0
+        self.assertEqual(fast_power.fast_power(x, e, m), result)
+
 if __name__ == '__main__':
     unittest.main()

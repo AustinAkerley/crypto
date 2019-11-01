@@ -1,5 +1,11 @@
 import math
 def fast_power(x, e, m):
+    #Fermatts little theorem addition
+    # TODO: Add a check to see if m is prime.
+    if e == m:
+        return 0
+    elif e == m-1:
+        return 1
     remainder = e
     sum_pwrs_2 = []
     while remainder != 0: #Build e via powers of 2
