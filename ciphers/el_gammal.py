@@ -1,4 +1,4 @@
-from src.fast_power import fast_power
+from .src.fast_power import fast_power
 import random
 class el_gammal:
 
@@ -70,8 +70,8 @@ class el_gammal:
                 print("Invalid message size, must be in range 2-p-2")
                 return None
             else:
-                if None in [self.generator, self.public_key]
-                self.cipher_text_1 = fast_power(self.generator)
+                if None in [self.generator, self.public_key]:
+                    self.cipher_text_1 = fast_power(self.generator)
 
         else:
             return None
