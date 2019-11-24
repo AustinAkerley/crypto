@@ -1,3 +1,6 @@
+# Author: Austin Akerley
+# Date Last Edited: 10/31/2019
+#
 def encode_unicode(message): # Converts a string of text or a character of text to a list of integers or an integer in the case of 1 character
     encoded_text= []
     if message is None:

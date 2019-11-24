@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+# Author: Austin Akerley
+# Date Last Edited: 10/31/2019
+#
 import encode_unicode
 import unittest
 

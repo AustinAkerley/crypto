@@ -1,5 +1,5 @@
-from src.fast_power import fast_power
-from src.mod_inv import mod_inv
+from .src.fast_power import fast_power
+from .src.mod_inv import mod_inv
 import random
 class el_gammal:
 

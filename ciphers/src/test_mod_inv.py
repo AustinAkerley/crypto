@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+# Author: Austin Akerley
+# Date Last Edited: 10/31/2019
+#
+import eea
 import mod_inv
 import unittest
 
