@@ -1,3 +1,6 @@
+# Author: Austin Akerley
+# Date Last Edited: 10/31/2019
+#
 def decode_unicode(lst_of_ints):
     if isinstance(lst_of_ints, int):
         return chr(lst_of_ints)

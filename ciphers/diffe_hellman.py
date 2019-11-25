@@ -1,4 +1,4 @@
-from .src.fast_power import fast_power
+from ..crypto.fast_power import fast_power
 
 class diffe_hellman: #The major return value of this class is the symmetric_key which can be used in AES and DES
     g = None # generator
