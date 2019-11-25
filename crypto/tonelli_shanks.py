@@ -36,5 +36,5 @@ def tonelli_shanks(g, h, p, check_interval = 2): #Solving x given g,h,p for the 
             for gk in list_one.keys():
                 if huk == gk:
                     #print("final i,j: "+str(i)+","+str(list_two.get(huk)))
-                    return i + (list_two.get(huk) * n)
+                    return list_one.get(gk) + (list_two.get(huk) * n)
         print(str((intv/check_interval)*100)+"% completed")
