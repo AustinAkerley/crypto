@@ -1,5 +1,5 @@
-from ..crypto.fast_power import fast_power
-from ..crypto.mod_inv import mod_inv
+from crypto.src.fast_power import fast_power
+from crypto.src.mod_inv import mod_inv
 import random
 class el_gammal:
 
@@ -45,7 +45,7 @@ class el_gammal:
         if None in [self.private_key, self.modulus, self.generator]:
             return None
         else:
-            self.public_key = fast_power(self.generator, self.private_key, self.modulus)
+            self.public_key = fast_power(self.generator, self.private_key, self.modulus)[0]
             return self.public_key
 
     def encrypt(self, message=None, generator=None, public_key=None, modulus=None, k=None):
@@ -75,8 +75,8 @@ class el_gammal:
             else:
                 if None not in [self.generator, self.public_key]:
                     self.message = message
-                    self.cipher_text_1 = fast_power(self.generator, self.k, self.modulus)
-                    self.cipher_text_2 = (self.message*fast_power(self.public_key, self.k, self.modulus)) % self.modulus
+                    self.cipher_text_1 = fast_power(self.generator, self.k, self.modulus)[0]
+                    self.cipher_text_2 = (self.message*fast_power(self.public_key, self.k, self.modulus)[0]) % self.modulus
                     return [self.cipher_text_1, self.cipher_text_2]
                 else:
                     print("Generator or public key is none")
@@ -97,7 +97,7 @@ class el_gammal:
             self.set_cipher_text_2(cipher_text_2)
 
         if None not in [self.private_key, self.generator, self.modulus, self.cipher_text_1, self.cipher_text_2]:
-            x = mod_inv(fast_power(self.cipher_text_1, self.private_key, self.modulus), self.modulus)
+            x = mod_inv(fast_power(self.cipher_text_1, self.private_key, self.modulus)[0], self.modulus)
             self.message = (x*self.cipher_text_2)%self.modulus
             return self.message
         else:
