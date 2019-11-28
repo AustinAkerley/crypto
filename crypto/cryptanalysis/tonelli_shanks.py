@@ -3,10 +3,13 @@
 #
 from math import log2
 from math import sqrt
+from crypto.src.order import order
 from crypto.src.fast_power import fast_power
 from crypto.src.mod_inv import mod_inv
+
 def tonelli_shanks(g, h, p, check_interval = 2): #Solving x given g,h,p for the equation g^x (mod p) = h, so logg(h) (mod p) = x
-    N = p-1
+    smoothness = 1000
+    N = order(g,p-1, p, smoothness)
     n = int(sqrt(N))+1 # Need a better way to solve for the order of N
     gn = fast_power(g, n, p)[0]
     #print("gn: "+str(gn))
