@@ -18,22 +18,23 @@ def fast_power(x, e, m, known_powers=None): #solivng for x^e (mod m) = result, w
         remainder = remainder-(2**upper)
 
     #The idea behind known powers is to not recompute powers that are already known this will benefit things such as iterating through x^e mod m where e={0,1,2,...n} for any large number n
-    if known_powers is not None: # known_powers is of the  structure where (x^(2^i)) and  {{i:ci},{i+1,ci+1},...}
+    if known_powers or known_powers is not None:# known_powers is of the  structure where (x^(2^i)) and  {{i:ci},{i+1,ci+1},...}
         result = 1
         for i in range(0, sum_pwrs_2[0]+1):
-            if i not in known_powers.keys(): #added needed values to known powers
+            if i in known_powers.keys(): #added needed values to known powers
+                #print("i: "+str(i))
+                #print("square: " + str(known_powers.get(i)))
+                if i in sum_pwrs_2:
+                    result = (result*known_powers.get(i)) % m
+            else:
                 if i == 0:
                     known_powers.update({0:x})
                 else:
-                    j=i-1
-                    while j not in known_powers.keys():#Figure out how far back I need to go
-                        j-=1
-                    while j<i: #Update known_powers
-                        square = known_powers.get(j)
-                        square = (square*square) % m
-                        known_powers.update({j+1:square})
-            #Values needed are already in known known_powers
-            result = (result*known_powers.get(i)) % m
+                    last_i = known_powers.get(i-1)
+                    last_i_squared = (last_i * last_i) % m
+                    known_powers.update({i:last_i_squared})
+                if i in sum_pwrs_2:
+                    result = (result*known_powers.get(i)) % m
         return [result, known_powers]
 
     else:
