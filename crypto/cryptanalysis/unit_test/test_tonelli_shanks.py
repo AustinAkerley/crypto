@@ -68,11 +68,12 @@ class TestTonelliShanks(unittest.TestCase):
         h = fast_power(g, e, p)[0]
         print("h: "+str(h))
         start = time.time()
-        x = tonelli_shanks(g, h, p, 10)
+        x = tonelli_shanks(g, h, p)
         stop = time.time()
         print("12 digit prime took: "+str(stop-start)+" seconds")
         print("x: "+str(x))
         self.assertEqual(x, e)
+
 
 
 if __name__ == '__main__':

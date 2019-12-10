@@ -27,9 +27,12 @@ def fast_power(x, e, m, known_powers=None): #solivng for x^e (mod m) = result, w
                 if i in sum_pwrs_2:
                     result = (result*known_powers.get(i)) % m
             else:
-                last_i = known_powers.get(i-1)
-                last_i_squared = (last_i * last_i) % m
-                known_powers.update({i:last_i_squared})
+                if i == 0:
+                    known_powers.update({0:x})
+                else:
+                    last_i = known_powers.get(i-1)
+                    last_i_squared = (last_i * last_i) % m
+                    known_powers.update({i:last_i_squared})
                 if i in sum_pwrs_2:
                     result = (result*known_powers.get(i)) % m
         return [result, known_powers]
