@@ -1,14 +1,20 @@
 # Author: Austin Akerley
 # Date Last Edited: 10/31/2019
 #
+# INPUTS:
+# x : int    - Base
+# e : int    - Exponent
+# m : int    - modulus
+# known_powers : dictionary     - sum of squares, mapped to values in the number field of m
+
 from math import log2
 def fast_power(x, e, m, known_powers=None): #solivng for x^e (mod m) = result, where known_powers is a dictionary of powers and there result for the same x and m
     #Fermatts little theorem addition
     # TODO: Add a check to see if m is prime.
     if e == m:
-        return [0, {}]
+        return {"result":0, "known_powers":None}
     elif e == m-1:
-        return [1, {}]
+        return {"result":1, "known_powers":{}}
 
     remainder = e
     sum_pwrs_2 = []
@@ -35,7 +41,7 @@ def fast_power(x, e, m, known_powers=None): #solivng for x^e (mod m) = result, w
                     known_powers.update({i:last_i_squared})
                 if i in sum_pwrs_2:
                     result = (result*known_powers.get(i)) % m
-        return [result, known_powers]
+        return {"result":result, "known_powers":known_powers}
 
     else:
         known_powers = {}
@@ -47,4 +53,10 @@ def fast_power(x, e, m, known_powers=None): #solivng for x^e (mod m) = result, w
             known_powers.update({i:square})
             square = (square*square) % m
 
-        return [result, known_powers]
+        return {"result":result, "known_powers":known_powers}
+
+# OUTPUTS : dictionary
+# {
+#     "result" : result, # int
+#     "known_powers" : known_powers # dictionary of the iterator for sum of squares, and the value of the sum of squares
+# }
