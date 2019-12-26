@@ -1,12 +1,19 @@
 # Author: Austin Akerley
-# Date Last Edited: 10/31/2019
+# Date Last Edited: 12/25/2019
 #
-def eea(x, y): # gcd(x,y) = ax + by   return value will be [GCD, a, x, b, y]
+
+# INPUTS: int, int
+# x : int
+# y : int
+
+def eea(x, y): # gcd(x,y) = ax + by   return value will be a dictionary
+    flipped = False
     if x==0 or y==0:
-        return [0, 0, 0, 0, 0]
+        return {"gcd":0, "a":0, "x":0, "b":0, "y":0}
     elif x==y:
         return [x, 2, x -1, y]
     elif x < y: #X must be greater than y
+        flipped = True
         tmp=x
         x=y
         y=tmp
@@ -29,4 +36,16 @@ def eea(x, y): # gcd(x,y) = ax + by   return value will be [GCD, a, x, b, y]
         y=remainder
         s.append(s[i-2]-(s[i-1]*q[i-1]))
         t.append(t[i-2]-(t[i-1]*q[i-1]))
-    return [r[i-1], t[i], old_x, s[i], old_y]
+    if flipped:
+        return {"gcd":r[i-1], "a":s[i], "x":old_y, "b":t[i], "y":old_x}
+    else:
+        return {"gcd":r[i-1], "a":t[i], "x":old_x, "b":s[i], "y":old_y}
+
+    # OUTPUTS: dictionary
+    # {
+    #     "gcd" : gcd(x, y),
+    #     "a" : a,
+    #     "x" : x,
+    #     "b" : b,
+    #     "y" : y
+    # }

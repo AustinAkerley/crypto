@@ -13,7 +13,7 @@ class TestTonelliShanks(unittest.TestCase):
         g = 9704
         expect_x = 1159
         p = 17389
-        expected_h = fast_power(9704, expect_x, 17389)[0]
+        expected_h = fast_power(9704, expect_x, 17389)["result"]
         h = 13896
         print("h: "+str(h))
         print("expected_h: "+str(expected_h))
@@ -27,7 +27,7 @@ class TestTonelliShanks(unittest.TestCase):
         g = 2
         e = 5621299
         p = 15485863 # 8 digits
-        h = fast_power(g, e, p)[0]
+        h = fast_power(g, e, p)["result"]
         #print("h: "+str(h))
         start = time.time()
         x = tonelli_shanks(g, h, p)
@@ -40,7 +40,7 @@ class TestTonelliShanks(unittest.TestCase):
         g = 42389
         e = 97234565
         p = 160481183 # 9 digits
-        h = fast_power(g, e, p)[0]
+        h = fast_power(g, e, p)["result"]
         print("h: "+str(h))
         start = time.time()
         x = tonelli_shanks(g, h, p)
@@ -53,7 +53,7 @@ class TestTonelliShanks(unittest.TestCase):
         g = 8538429
         e = 293587245
         p = 5915587277 # 9 digits
-        h = fast_power(g, e, p)[0]
+        h = fast_power(g, e, p)["result"]
         #print("h: "+str(h))
         start = time.time()
         x = tonelli_shanks(g, h, p)

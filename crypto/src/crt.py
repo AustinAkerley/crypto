@@ -1,6 +1,8 @@
 # Author: Austin Akerley
 # Date Last Edited: 11/24/2019
 # Title: Chinese Remainder Theorem
+# INPUTS:
+# congruences_and_primes  -  a list of tuples, of any size
 from crypto.src.mod_inv import mod_inv
 def crt(congruences_and_primes): # congruences_and_primes is of the form: [(a0, p0), (a1, p1), ... , (an, pn)] where an, pn must be a tuple, solving for x where x = ax (mod px) for all x in range 0-n
     i=0
@@ -23,3 +25,7 @@ def crt(congruences_and_primes): # congruences_and_primes is of the form: [(a0, 
             a_last = x
             p_last = (p_last*px)
     return x
+
+# OUTPUTS:
+# x - int       - a number in the field p0*p1...*px-1*px that is the result of all the congruences:
+# x = a0 (mod p0), x = a1 (mod p1), x = a2 (mod p2)... With all of the ai and pi, you can solve backwards for x by the method above
