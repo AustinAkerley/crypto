@@ -8,15 +8,11 @@ class curve:
     def slope(P, Q): # Where P and Q are tuples
         y_diff = (P[1]-Q[1])%self.modulus
         x_diff = (P[0]-Q[0])%self.modulus
-        slope = y_diff/x_diff
-        if isinstance(slope, int):
-            return {"slope":slope, "y_diff":y_diff, "x_diff":x_diff}
-        else:
-            slope = y_diff * mod_inv(x_diff, self.modulus)
-            return {"slope":slope, "y_diff":y_diff, "x_diff":x_diff}
+        slope = (y_diff * mod_inv(x_diff, self.modulus))%self.modulus
+        return {"slope":slope, "y_diff":y_diff, "x_diff":x_diff}
 
-    def add(P, Q): # Where P and Q are tuples
+    def add(self, P, Q): # Where P and Q are tuples
         result = self.slope(P,Q)
         slope = result.get("slope")
-        xR = ((slope * slope) % self.modulus) - (P[0]+Q[0])
-        yR = ((result.get("slope") * result.get("slope")))
+        xR = ((slope * slope) - ( P[0] + Q[0] )) % self.modulus
+        yR = (slope * (P[0] - xR) - P[1]) % self.modulus
