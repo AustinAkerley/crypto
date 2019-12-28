@@ -32,21 +32,21 @@ class curve:
     def multiply(self, P, multiplier):
         multiplier = multiplier % self.modulus
         remainder = multiplier
-        sum_pwrs_2 = []
-        while remainder != 0: #Build e via powers of 2, with the first elemnet being the largest -> 345 ->sum_pwrs_2 = [256, 64, ...]
+        ternary_expansion = []
+        while remainder != 0:
             upper = int(log2(remainder)) # floor log base 2
-            sum_pwrs_2.append(upper)
+            ternary_expansion.append(upper)
             remainder = remainder-(2**upper)
 
-        sum = None
-        if 0 in sum_pwrs_2:
-            sum = P
+        sum_pt = None
+        if 0 in ternary_expansion:
+            sum_pt = P
         R = P
         for i in range (1, int(log2(multiplier)) + 1):
             R = self.add(R,R)
-            if i in sum_pwrs_2:
-                if sum is None:
-                    sum = R
+            if i in ternary_expansion:
+                if sum_pt is None:
+                    sum_pt = R
                 else:
-                    sum = self.add(sum, R)
-        return sum
+                    sum_pt = self.add(sum_pt, R)
+        return sum_pt

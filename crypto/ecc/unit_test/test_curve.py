@@ -40,11 +40,19 @@ class TestCurve(unittest.TestCase):
         print("P2: " + str(P2))
         self.assertEqual(P2, expected_P2)
 
-    def test_curve_multiply_1(self):
-        my_curve = curve(3,8,13)
-        P = (9,7)
-        P2 = my_curve.multiply(P, 5)
-        expected_P2 = (8,6)
+    def test_curve_multiply_2(self):
+        my_curve = curve(14,19,3623)
+        P = (6,730)
+        P2 = my_curve.multiply(P, 947)
+        expected_P2 = (3492,60)
+        print("P2: " + str(P2))
+        self.assertEqual(P2, expected_P2)
+        
+    def test_curve_multiply_3(self):
+        my_curve = curve(8,7,73)
+        P = (32,53)
+        P2 = my_curve.multiply(P, 11)
+        expected_P2 = (39,17)
         print("P2: " + str(P2))
         self.assertEqual(P2, expected_P2)
 
