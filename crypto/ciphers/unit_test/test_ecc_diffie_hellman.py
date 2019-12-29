@@ -11,7 +11,6 @@ class Test(unittest.TestCase):
 
         diffie_A = ecc_diffie_hellman(E, P)
         QA = diffie_A.public_keygen(private_key=1194)
-        symmetric_key = diffie_A.symmetric_keygen()
 
         diffie_B = ecc_diffie_hellman(E, P)
         QB = diffie_B.public_keygen(private_key=1759)

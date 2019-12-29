@@ -28,4 +28,7 @@ class ecc_diffie_hellman(object):
             self.private_key = private_key
         if None in [self.curve, self.private_key, QB]:
             return None;
+        
+        if isinstance(QB, int):
+            y2 = QB ** 3 
         return self.curve.multiply(QB, self.private_key);
