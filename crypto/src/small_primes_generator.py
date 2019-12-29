@@ -1,6 +1,10 @@
-# Author: Austin Akerley
-# Date Last Edited: 11/27/2019
-#
+# Title: Small Primes Generator
+# Creator: Austin Akerley
+# Date Created: 11/26/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
+
 # INPUTS:
 # max : int  -  The value to find all prime integers under
 def small_primes_generator(max): #max being

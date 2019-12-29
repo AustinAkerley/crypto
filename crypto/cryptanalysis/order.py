@@ -1,8 +1,10 @@
-# Author: Austin Akerley
-# Date Last Edited: 11/27/2019
-#
-
-#TODO: THIS IS A NON-COMPLETE WAY OF FINDING THE ORDER, NEED TO FIX SOMEDAY
+# Title: Order Calculator of a Generator in Fp
+# Creator: Austin Akerley
+# Date Created: 12/25/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
+# WARNING: THIS IS A NON-COMPLETE WAY OF FINDING THE ORDER, NEED TO FIX SOMEDAY
 
 # INPUTS:
 # g : int - the element to which you're finding the order of in the field of prime p

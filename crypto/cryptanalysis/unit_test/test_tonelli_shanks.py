@@ -1,11 +1,15 @@
 #!/usr/bin/python3
-# Author: Austin Akerley
-# Date Last Edited: 10/31/2019
-#
-from crypto import tonelli_shanks
-from crypto import fast_power
+# Title: Unit Test for Tonelli-Shanks Discrete Logarithm Algorithm
+# Creator: Austin Akerley
+# Date Created: 11/26/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
+
 import time
 import unittest
+from crypto.cryptanalysis.tonelli_shanks import tonelli_shanks
+from crypto.src.fast_power import fast_power
 
 class TestTonelliShanks(unittest.TestCase):
     def test_tonelli_shanks_1(self):

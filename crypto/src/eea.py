@@ -1,6 +1,9 @@
-# Author: Austin Akerley
-# Date Last Edited: 12/25/2019
-#
+# Title: Extended Euclidean Algorithm
+# Creator: Austin Akerley
+# Date Created: 11/26/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
 
 # INPUTS: int, int
 # x : int

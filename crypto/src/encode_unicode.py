@@ -1,6 +1,10 @@
-# Author: Austin Akerley
-# Date Last Edited: 10/31/2019
-#
+# Title: Encode Unicode
+# Creator: Austin Akerley
+# Date Created: 11/26/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
+
 def encode_unicode(message): # Converts a string of text or a character of text to a list of integers or an integer in the case of 1 character
     encoded_text= []
     if message is None:

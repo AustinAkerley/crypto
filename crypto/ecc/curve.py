@@ -1,5 +1,13 @@
-from crypto.src.mod_inv import mod_inv
+# Title: Elliptic Curve
+# Creator: Austin Akerley
+# Date Created: 12/25/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
+
 from math import log2
+from crypto.src.mod_inv import mod_inv
+
 class curve:
     def __init__(self, A, B, modulus = None): # Curve is y^2 = x^3 + A*x + B
         self.A = A
@@ -23,7 +31,6 @@ class curve:
             return P
         elif P[0] == Q[0] and P[1] == -Q[1]:
             return (None, None)
-
         slope = self.slope(P,Q)
         xR = (slope * slope - P[0] - Q[0] ) % self.modulus
         yR = (slope * (P[0] - xR) - P[1]) % self.modulus

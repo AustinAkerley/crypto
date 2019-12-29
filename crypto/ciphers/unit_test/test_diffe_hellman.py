@@ -1,6 +1,13 @@
 #!/usr/bin/python3
-from crypto.ciphers.diffe_hellman import diffe_hellman
+# Title: Unit Test for Diffe-Hellman Key Exchange
+# Creator: Austin Akerley
+# Date Created: 11/26/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
+
 import unittest
+from crypto.ciphers.diffe_hellman import diffe_hellman
 
 class TestDiffeHellman(unittest.TestCase):
     def test_diffe_hellman_1(self):
@@ -14,7 +21,6 @@ class TestDiffeHellman(unittest.TestCase):
         print("A_sym_key: "+str(A_sym_key)+" | B_sym_key: "+str(B_sym_key))
         self.assertEqual(A_sym_key, 470)
         self.assertEqual(B_sym_key, 470)
-
 
 if __name__ == '__main__':
     unittest.main()

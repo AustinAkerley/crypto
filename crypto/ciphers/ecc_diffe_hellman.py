@@ -1,6 +1,14 @@
-import random
-class ecc_diffie_hellman(object):
+# Title: Elliptic Cujrve Diffe-Hellman Key Exchange
+# Creator: Daniel Gerthe
+# Date Created: 12/28/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
 
+import random
+from crypto.ecc.curve import curve
+
+class ecc_diffe_hellman(object):
     def __init__(self, curve = None, P = None):
         self.curve = curve;
         self.P = P
@@ -28,7 +36,7 @@ class ecc_diffie_hellman(object):
             self.private_key = private_key
         if None in [self.curve, self.private_key, QB]:
             return None;
-        
+
         if isinstance(QB, int):
-            y2 = QB ** 3 
+            y2 = QB ** 3
         return self.curve.multiply(QB, self.private_key);

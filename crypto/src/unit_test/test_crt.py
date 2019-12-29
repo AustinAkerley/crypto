@@ -1,7 +1,10 @@
 #!/usr/bin/python3
-# Author: Austin Akerley
-# Date Last Edited: 12/09/2019
-#
+# Title: Unit Test for Chinese Remainder Theorem
+# Creator: Austin Akerley
+# Date Created: 11/26/2019
+# Last Editor: Austin Akerley
+# Date Last Edited: 12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
 from crypto.src.crt import crt
 import unittest
 

@@ -1,3 +1,10 @@
+# Title: Substitution Cipher
+# Creator: Austin Akerley
+# Date Created: 11/26/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
+
 class substitution:
     #Class variables
     _MODE = ["alphabetic", "ascii", "ascii_ext", "unicode"]

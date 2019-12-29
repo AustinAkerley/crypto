@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-# Author: Austin Akerley
-# Date Last Edited: 12/09/2019
-#
-from crypto.ecc.curve import curve
+# Title: Brute Force Elliptic Curve Discrete Logarithm
+# Creator: Daniel Gerthe
+# Date Created: 12/28/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
+
 import unittest
+from crypto.ecc.curve import curve
 
 class TestCurve(unittest.TestCase):
     def test_curve_1(self):
@@ -47,7 +51,7 @@ class TestCurve(unittest.TestCase):
         expected_P2 = (3492,60)
         print("P2: " + str(P2))
         self.assertEqual(P2, expected_P2)
-        
+
     def test_curve_multiply_3(self):
         my_curve = curve(8,7,73)
         P = (32,53)

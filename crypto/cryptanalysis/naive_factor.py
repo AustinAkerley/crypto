@@ -1,11 +1,16 @@
-# Author: Austin Akerley
-# Date Last Edited: 11/27/2019
-#
+# Title: Naive Factoring Algorithm
+# Creator: Austin Akerley
+# Date Created: 12/25/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
+
 # INPUTS:
 # h : int  - integer to factor
 # smooth : int - tells the program the highest prime to check if divisble by
 
 from crypto.src.small_primes_generator import small_primes_generator
+
 def naive_factor(h, smooth=1000):
     prime_factors = []
     small_primes = small_primes_generator(smooth)

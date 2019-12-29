@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-# Author: Austin Akerley
-# Date Last Edited: 10/31/2019
-#
-from crypto.src.decode_unicode import decode_unicode
+# Title: Unit Test for Decode Unicode
+# Creator: Austin Akerley
+# Date Created: 11/26/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
+
 import unittest
+from crypto.src.decode_unicode import decode_unicode
 
 class TestDecodeUnicode(unittest.TestCase):
     def test_decode_unicode_1(self):
