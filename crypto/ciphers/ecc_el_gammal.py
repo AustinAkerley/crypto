@@ -48,6 +48,9 @@ class ecc_el_gammal:
         else:
             print("invalid type")
             return None
+            
+    def plaintext_to_point(self, m):
+        pass
 
     def encrypt(self, plain_text, QB, private_key = None, k = None, E = None, P = None, output_type = "x only"):
         if private_key is not None:
@@ -68,7 +71,8 @@ class ecc_el_gammal:
                 y2 = (fast_power(QB, 3, self.E.modulus).get("result") + (QB*self.E.A) + self.E.B) % self.E.modulus
                 y = mod_sqrt(y2, self.E.modulus)[0]
                 QB = (QB, mod_sqrt(y, self.E.modulus)[0])
-        y2 = (fast_power(plain_text, 3, self.E.modulus).get("result") + (plain_text*self.E.A) + self.E.B) % self.E.modulus
+        y2 = (((plain_text ** 3)% self.E.modulus) + (plain_text*self.E.A) + self.E.B) % self.E.modulus
+        print("y2: "+str(y2))
         y = mod_sqrt(y2, self.E.modulus)[0]
         M = (plain_text, y)
 

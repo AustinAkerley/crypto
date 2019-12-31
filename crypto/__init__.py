@@ -18,3 +18,5 @@ from .ciphers.substitution import substitution
 from .ciphers.diffie_hellman import diffie_hellman
 from .ciphers.el_gammal import el_gammal
 from .ciphers.ecc_diffie_hellman import ecc_diffie_hellman
+#ECC
+from .ecc.curve import curve
