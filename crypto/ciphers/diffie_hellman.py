@@ -1,4 +1,4 @@
-# Title: Diffe-Hellman Key Exchange
+# Title: Diffie-Hellman Key Exchange
 # Creator: Austin Akerley
 # Date Created: 11/26/2019
 # Last Editor: Austin Akerley
@@ -7,7 +7,7 @@
 
 from crypto.src.fast_power import fast_power
 
-class diffe_hellman: #The major return value of this class is the symmetric_key which can be used in AES and DES
+class diffie_hellman: #The major return value of this class is the symmetric_key which can be used in AES and DES
     def __init__(self, g=None, private_key=None, p=None, B=None, A=None, symmetric_key=None):
         self.set_generator(g)
         self.set_private_key(private_key)

@@ -1,5 +1,5 @@
-#!/usr/bin/python3
-# Title: Unit Test for Diffe-Hellman Key Exchange
+diffie#!/usr/bin/python3
+# Title: Unit Test for Diffie-Hellman Key Exchange
 # Creator: Austin Akerley
 # Date Created: 11/26/2019
 # Last Editor: Austin Akerley
@@ -7,12 +7,12 @@
 # Associated Book Page Nuber: XXXXXXXX
 
 import unittest
-from crypto.ciphers.diffe_hellman import diffe_hellman
+from crypto.ciphers.diffie_hellman import diffie_hellman
 
-class TestDiffeHellman(unittest.TestCase):
-    def test_diffe_hellman_1(self):
-        A = diffe_hellman(g=627, private_key=347, p=941)
-        B = diffe_hellman(g=627, private_key=781, p=941)
+class TestDiffieHellman(unittest.TestCase):
+    def test_diffie_hellman_1(self):
+        A = diffie_hellman(g=627, private_key=347, p=941)
+        B = diffie_hellman(g=627, private_key=781, p=941)
         print("A: " + str(A.A)+" | B: " + str(B.A))
         self.assertEqual(A.A, 390)
         self.assertEqual(B.A, 691)
