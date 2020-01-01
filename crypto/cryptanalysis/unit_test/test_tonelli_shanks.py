@@ -69,7 +69,7 @@ class TestTonelliShanks(unittest.TestCase):
     # def test_tonelli_shanks_5(self):
     #     g = 2
     #     e = 29345563468
-    #     p = 1618033988749  # 9 digits
+    #     p = 1618033988749  # 13 digits
     #     h = fast_power(g, e, p)[0]
     #     #print("h: "+str(h))
     #     start = time.time()

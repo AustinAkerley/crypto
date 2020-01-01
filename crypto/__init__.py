@@ -20,3 +20,4 @@ from .ciphers.el_gammal import el_gammal
 from .ciphers.ecc_diffie_hellman import ecc_diffie_hellman
 #ECC
 from .ecc.curve import curve
+from .cryptanalysis.lenstras_algorithm import lenstras_algorithm

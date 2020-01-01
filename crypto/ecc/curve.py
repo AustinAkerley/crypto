@@ -13,15 +13,24 @@ class curve:
         self.A = A
         self.B = B
         self.modulus = modulus
+        self.divisor = None
 
     def slope(self, P, Q): # Where P and Q are tuples
         if P == Q:
-            slope = (3*P[0]*P[0] + self.A) * mod_inv(2*P[1], self.modulus)
+            inv_2y_p = mod_inv(2*P[1], self.modulus)
+            if isinstance(inv_2y_p, tuple):
+                d = inv_2y_p[1]
+                return [None, None, d]
+            slope = ((3*P[0]*P[0] + self.A) * inv_2y_p) % self.modulus
             return slope
         else:
             y_diff = (P[1]-Q[1])%self.modulus
             x_diff = (P[0]-Q[0])%self.modulus
-            slope = (y_diff * mod_inv(x_diff, self.modulus))%self.modulus
+            inv_x_diff  = mod_inv(x_diff, self.modulus)
+            if isinstance(inv_x_diff,tuple):
+                d = inv_x_diff[1]
+                return [None, None, d]
+            slope = (y_diff * inv_x_diff)%self.modulus
             return slope
 
     def add(self, P, Q): # Where P and Q are tuples
@@ -32,6 +41,8 @@ class curve:
         elif P[0] == Q[0] and P[1] == -Q[1]:
             return (None, None)
         slope = self.slope(P,Q)
+        if isinstance(slope, list):
+            return slope
         xR = (slope * slope - P[0] - Q[0] ) % self.modulus
         yR = (slope * (P[0] - xR) - P[1]) % self.modulus
         return (xR, yR)
@@ -51,9 +62,13 @@ class curve:
         R = P
         for i in range (1, int(log2(multiplier)) + 1):
             R = self.add(R,R)
+            if len(R) == 3:
+                return R
             if i in ternary_expansion:
                 if sum_pt is None:
                     sum_pt = R
                 else:
                     sum_pt = self.add(sum_pt, R)
+                    if len(sum_pt) == 3:
+                        return sum_pt
         return sum_pt
