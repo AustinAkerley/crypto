@@ -1,10 +1,14 @@
 #!/usr/bin/python3
-# Author: Austin Akerley
-# Date Last Edited: 12/12/2019
-#
-from crypto.cryptanalysis.order import order
+# Title: Unit Test for Calculating the Order of a Generator in Fp or the field of the modulus
+# Creator: Austin Akerley
+# Date Created: 12/25/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
+
 import time
 import unittest
+from crypto.cryptanalysis.order import order
 
 class TestOrder(unittest.TestCase):
     def test_order_1(self):

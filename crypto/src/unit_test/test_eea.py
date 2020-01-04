@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-# Author: Austin Akerley
-# Date Last Edited: 10/31/2019
-#
-from crypto.src.eea import eea
+# Title: Unit Test for Extended Euclidean Algorithm
+# Creator: Austin Akerley
+# Date Created: 11/26/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
+
 import unittest
+from crypto.src.eea import eea
 
 class TestEEA(unittest.TestCase):
     def test_eea_1(self):
@@ -34,5 +38,6 @@ class TestEEA(unittest.TestCase):
         x = 999749
         y = 100207
         self.assertEqual(eea(x, y), {"gcd":1, "a":12650, "x":999749, "b":-126207, "y":100207})
+
 if __name__ == '__main__':
     unittest.main()

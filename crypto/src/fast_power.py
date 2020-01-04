@@ -1,6 +1,10 @@
-# Author: Austin Akerley
-# Date Last Edited: 10/31/2019
-#
+# Title: Fast Power Algorithm
+# Creator: Austin Akerley
+# Date Created: 11/26/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
+
 # INPUTS:
 # x : int    - Base
 # e : int    - Exponent
@@ -8,6 +12,7 @@
 # known_powers : dictionary     - sum of squares, mapped to values in the number field of m
 
 from math import log2
+
 def fast_power(x, e, m, known_powers=None): #solivng for x^e (mod m) = result, where known_powers is a dictionary of powers and there result for the same x and m
     #Fermatts little theorem addition
     # TODO: Add a check to see if m is prime.
@@ -15,14 +20,12 @@ def fast_power(x, e, m, known_powers=None): #solivng for x^e (mod m) = result, w
         return {"result":0, "known_powers":None}
     elif e == m-1:
         return {"result":1, "known_powers":{}}
-
     remainder = e
     sum_pwrs_2 = []
     while remainder != 0: #Build e via powers of 2, with the first elemnet being the largest -> 345 ->sum_pwrs_2 = [256, 64, ...]
         upper = int(log2(remainder)) # floor log base 2
         sum_pwrs_2.append(upper)
         remainder = remainder-(2**upper)
-
     #The idea behind known powers is to not recompute powers that are already known this will benefit things such as iterating through x^e mod m where e={0,1,2,...n} for any large number n
     if known_powers or known_powers is not None:# known_powers is of the  structure where (x^(2^i)) and  {{i:ci},{i+1,ci+1},...}
         result = 1
@@ -42,7 +45,6 @@ def fast_power(x, e, m, known_powers=None): #solivng for x^e (mod m) = result, w
                 if i in sum_pwrs_2:
                     result = (result*known_powers.get(i)) % m
         return {"result":result, "known_powers":known_powers}
-
     else:
         known_powers = {}
         result = 1
@@ -52,7 +54,6 @@ def fast_power(x, e, m, known_powers=None): #solivng for x^e (mod m) = result, w
                 result = (result*square) % m
             known_powers.update({i:square})
             square = (square*square) % m
-
         return {"result":result, "known_powers":known_powers}
 
 # OUTPUTS : dictionary

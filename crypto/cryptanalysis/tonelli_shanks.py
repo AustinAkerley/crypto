@@ -1,7 +1,10 @@
-# Author: Austin Akerley
-# Date Last Edited: 11/22/2019
-#
-
+# Title: Brute Force Elliptic Curve Discrete Logarithm
+# Creator: Austin Akerley
+# Date Created: 12/25/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
+# WARNING: MIGH NOT WORK AS INTENDED NOT ALL EDGE CASES ARE HANDLED YET
 # TODO: MULTI PROCESS, FILES INSTEAD OF MEMORY, MAKE ORDER BETTER
 
 # INPUTS:

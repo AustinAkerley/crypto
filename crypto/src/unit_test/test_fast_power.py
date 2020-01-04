@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-# Author: Austin Akerley
-# Date Last Edited: 10/31/2019
-#
-from crypto.src.fast_power import fast_power
+# Title: Unit Test for Fast Power
+# Creator: Austin Akerley
+# Date Created: 11/26/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
+
 import unittest
+from crypto.src.fast_power import fast_power
 
 class TestFastPower(unittest.TestCase):
     def test_fast_power_1(self):

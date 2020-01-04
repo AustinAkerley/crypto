@@ -1,8 +1,15 @@
+# Title: El-Gammal Cipher
+# Creator: Austin Akerley
+# Date Created: 11/26/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
+
+import random
 from crypto.src.fast_power import fast_power
 from crypto.src.mod_inv import mod_inv
-import random
-class el_gammal:
 
+class el_gammal:
     def __init__(self,generator=None, private_key=None, modulus=None, public_key=None, cipher_text_1=None, cipher_text_2=None):
         if generator is not None:
             self.set_generator(generator)

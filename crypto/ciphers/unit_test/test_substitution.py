@@ -1,6 +1,13 @@
 #!/usr/bin/python3
-from crypto.ciphers.substitution import substitution
+# Title: Unit Test for Substitution Cipher
+# Creator: Austin Akerley
+# Date Created: 11/26/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:11/26/2019
+# Associated Book Page Nuber: XXXXXXXX
+
 import unittest
+from crypto.ciphers.substitution import substitution
 
 class TestSubstitutionCipher(unittest.TestCase):
     def test_substituion_cipher_decrypt_1(self):

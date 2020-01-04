@@ -1,13 +1,13 @@
+# Title: Diffie-Hellman Key Exchange
+# Creator: Austin Akerley
+# Date Created: 11/26/2019
+# Last Editor: Austin Akerley
+# Date Last Edited:12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
+
 from crypto.src.fast_power import fast_power
 
-class diffe_hellman: #The major return value of this class is the symmetric_key which can be used in AES and DES
-    g = None # generator
-    private_key = None
-    p = None # prime modulus
-    A = None # Public domain key which is equal to g^private_key mod p
-    B = None # PUblic domain key which is equal to g^(partners_private_key) mod p
-    symmetric_key = None # Shared symmetric key B^a mod p
-
+class diffie_hellman: #The major return value of this class is the symmetric_key which can be used in AES and DES
     def __init__(self, g=None, private_key=None, p=None, B=None, A=None, symmetric_key=None):
         self.set_generator(g)
         self.set_private_key(private_key)

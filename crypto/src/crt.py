@@ -1,12 +1,18 @@
-# Author: Austin Akerley
-# Date Last Edited: 11/24/2019
 # Title: Chinese Remainder Theorem
+# Creator: Austin Akerley
+# Date Created: 11/26/2019
+# Last Editor: Austin Akerley
+# Date Last Edited: 12/28/2019
+# Associated Book Page Nuber: XXXXXXXX
+
 # INPUTS:
 # congruences_and_primes  -  a list of tuples, of any size
+
 from crypto.src.mod_inv import mod_inv
+
 def crt(congruences_and_primes): # congruences_and_primes is of the form: [(a0, p0), (a1, p1), ... , (an, pn)] where an, pn must be a tuple, solving for x where x = ax (mod px) for all x in range 0-n
-    i=0
-    x=0
+    i = 0
+    x = 0
     a_last = 0
     p_last = 0
     for ax_px in congruences_and_primes:
