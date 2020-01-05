@@ -11,7 +11,7 @@ from crypto.src.legendre_symbol import legendre_symbol
 
 def mod_sqrt(a, modulus):
     if legendre_symbol(a, modulus) != 1:
-        print("a {"+str(a)+"} has no square root modulo {"+str(modulus)+"}")
+#         print("a {"+str(a)+"} has no square root modulo {"+str(modulus)+"}")
         return None
     if modulus % 2 == 0:
         print("Not a prime")

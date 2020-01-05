@@ -5,14 +5,53 @@
 # Date Last Edited:12/28/2019
 # Associated Book Page Nuber: XXXXXXXX
 
-from math import log2
+from math import log2, floor
+import random
 from crypto.src.mod_inv import mod_inv
+from crypto.src.fast_power import fast_power
+from crypto.src.mod_sqrt import mod_sqrt
 
 class curve:
     def __init__(self, A, B, modulus = None): # Curve is y^2 = x^3 + A*x + B
         self.A = A
         self.B = B
         self.modulus = modulus
+        self.l = int(modulus.bit_length() / 2)
+        self.max_msg = 0
+        for _ in range(0, self.l):
+            self.max_msg = (self.max_msg << 1) | 1
+    
+    def is_point_on_curve(self, P):
+        if isinstance(P, int):
+            P = self.get_point(P)
+            if P is None:
+                return False
+        return (P[1] ** 2) == (fast_power(P[0], 3, self.modulus).get("result") + (self.A * P[0] % self.modulus) + self.B)
+
+    def get_point(self, x):
+        y2 = fast_power(x, 3, self.modulus).get("result") + (self.A * x % self.modulus) + self.B
+        y = mod_sqrt(y2, self.modulus)
+        if y is None: return None;
+        return (x, y[0])
+    
+    def msg_to_point(self, m):
+        if m > self.max_msg:
+            return None
+        P = None
+        found_point = False
+        while not found_point:
+            r = random.randint(1, self.max_msg)
+            r = (r << self.l) | m
+            P = self.get_point(r)
+            if P is not None and self.is_point_on_curve(P):
+                found_point = True
+        return P
+    
+    def point_to_msg(self, P):
+        if isinstance(P, tuple):
+            P = P[0]
+        return P & self.max_msg;
+        
 
     def slope(self, P, Q): # Where P and Q are tuples
         if P == Q:

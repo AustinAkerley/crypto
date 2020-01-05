@@ -59,6 +59,12 @@ class TestCurve(unittest.TestCase):
         expected_P2 = (39,17)
         print("P2: " + str(P2))
         self.assertEqual(P2, expected_P2)
+    
+    def test_curve_point_convert(self):
+        my_curve = curve(14,19,3623)
+        msg = 34
+        P = my_curve.msg_to_point(msg)
+        self.assertEqual(msg, my_curve.point_to_msg(P))
 
 if __name__ == '__main__':
     unittest.main()
