@@ -2,27 +2,27 @@
 # Creator: Austin Akerley
 # Date Created: 11/26/2019
 # Last Editor: Austin Akerley
-# Date Last Edited:12/28/2019
-# Associated Book Page Nuber: XXXXXXXX
+# Date Last Edited: 01/18/2020
+# Associated Book Page Nuber: 16
 
-# INPUTS: int, int
-# x : int
-# y : int
+# INPUT -
+# x - type: int, desc: one of the inputs for the extended euclidean algorithm
+# y - type: int, desc: one of the inputs for the extended euclidean algorithm
 
-def eea(x, y): # gcd(x,y) = ax + by   return value will be a dictionary
+def eea(x, y): # gcd(x,y) = ax + by
     flipped = False
     if x==0 or y==0:
         return {"gcd":0, "a":0, "x":0, "b":0, "y":0}
     elif x==y:
         return [x, 2, x -1, y]
-    elif x < y: #X must be greater than y
+    elif x < y: # set x to be the bigger number
         flipped = True
         tmp=x
         x=y
         y=tmp
     #Start of real algorithm
-    old_x = x
-    old_y = y
+    starting_x = x
+    starting_y = y
     q = [0, 0]
     r = [x, y]
     s = [1, 0]
@@ -40,15 +40,15 @@ def eea(x, y): # gcd(x,y) = ax + by   return value will be a dictionary
         s.append(s[i-2]-(s[i-1]*q[i-1]))
         t.append(t[i-2]-(t[i-1]*q[i-1]))
     if flipped:
-        return {"gcd":r[i-1], "a":s[i], "x":old_y, "b":t[i], "y":old_x}
+        return {"gcd":r[i-1], "a":s[i], "x":starting_x, "b":t[i], "y":starting_y}
     else:
-        return {"gcd":r[i-1], "a":t[i], "x":old_x, "b":s[i], "y":old_y}
+        return {"gcd":r[i-1], "a":t[i], "x":starting_x, "b":s[i], "y":starting_y}
 
-    # OUTPUTS: dictionary
+    # OUTPUT - type: dictionary
     # {
-    #     "gcd" : gcd(x, y),
-    #     "a" : a,
-    #     "x" : x,
-    #     "b" : b,
-    #     "y" : y
+    #     "gcd" - type: int, desc: gcd(x, y),
+    #     "a" - type: int, desc: a,
+    #     "x" - type: int, desc: x,
+    #     "b" - type: int, desc: b,
+    #     "y" - type: int, desc: y
     # }
