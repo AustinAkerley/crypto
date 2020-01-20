@@ -2,23 +2,29 @@
 # Creator: Austin Akerley
 # Date Created: 11/26/2019
 # Last Editor: Austin Akerley
-# Date Last Edited:12/28/2019
-# Associated Book Page Nuber: XXXXXXXX
+# Date Last Edited: 01/19/2020
+# Associated Book Page Nuber: 21
+# NOTE: NOT HAPPY WITH HOW THIS WAS DONE! NEED TO FIX SOON, SHOULD NOT HAVE A DICT RETUN, SEE ECC LENTRAS FASCT TO FIX
 
-# INPUTS:
-# a : int         - divisor
-# m : int         - modulus
+# INPUT(S) -
+# a - type: int, desc: divisor
+# m - type: int, desc: modulus
 
 from crypto.src.eea import eea
 
-def mod_inv(a, m): #Where a*b = 1 mod(m)
-    eea_res = eea(a, m)
-    inv = eea_res.get("a")
-    if eea_res["gcd"] != 1:
-        if eea_res["gcd"] != m:
-            print(str(eea_res["gcd"]) + " divides N = {"+str(m)+"}" )
-        return (None, eea_res["gcd"])
-    return (inv % m)
+def mod_inv(a, m): # Where a*b = 1 mod(m)
+    inv = None
+    if a == 0 or m == 0:
+        inv = 0
+    else:
+        eea_res = eea(a, m)
+        inv = eea_res.get("a")
+        if eea_res["gcd"] != 1:
+            if eea_res["gcd"] != m:
+                print(str(eea_res["gcd"]) + " divides N = {"+str(m)+"}" )
+            return (None, eea_res["gcd"])
+        inv = (inv % m)
+    return inv
 
-# OUTPUTS: int
-# inv  -  The mathematical inverse modulo m of a, inv = 1/a (mod m), inv*a = 1 (mod m)
+# OUTPUT - type: int
+# inv - type: int, desc: The mathematical inverse modulo m of a, inv = 1/a (mod m), inv*a = 1 (mod m)

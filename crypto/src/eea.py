@@ -2,12 +2,12 @@
 # Creator: Austin Akerley
 # Date Created: 11/26/2019
 # Last Editor: Austin Akerley
-# Date Last Edited: 01/18/2020
+# Date Last Edited: 01/19/2020
 # Associated Book Page Nuber: 16
 
-# INPUT -
-# x - type: int, desc: one of the inputs for the extended euclidean algorithm
-# y - type: int, desc: one of the inputs for the extended euclidean algorithm
+# INPUT(s) -
+# x - type: int, desc: one of the inputs for the extended euclidean algorithm, example: 12345
+# y - type: int, desc: one of the inputs for the extended euclidean algorithm, example: 75232
 
 def eea(x, y): # gcd(x,y) = ax + by
     flipped = False
@@ -44,11 +44,11 @@ def eea(x, y): # gcd(x,y) = ax + by
     else:
         return {"gcd":r[i-1], "a":t[i], "x":starting_x, "b":s[i], "y":starting_y}
 
-    # OUTPUT - type: dictionary
-    # {
-    #     "gcd" - type: int, desc: gcd(x, y),
-    #     "a" - type: int, desc: a,
-    #     "x" - type: int, desc: x,
-    #     "b" - type: int, desc: b,
-    #     "y" - type: int, desc: y
-    # }
+# OUTPUT - type: dictionary
+# {
+#     "gcd" - type: int, desc: gcd(x, y),
+#     "a" - type: int, desc: a,
+#     "x" - type: int, desc: x,
+#     "b" - type: int, desc: b,
+#     "y" - type: int, desc: y
+# }

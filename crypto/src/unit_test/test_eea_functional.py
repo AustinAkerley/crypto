@@ -3,7 +3,7 @@
 # Creator: Austin Akerley
 # Date Created: 11/26/2019
 # Last Editor: Austin Akerley
-# Date Last Edited:01/18/2020
+# Date Last Edited: 01/19/2020
 
 import unittest
 from crypto.src.eea import eea #UUT
@@ -17,12 +17,12 @@ class TestEEAFunctional(unittest.TestCase):
     def test_eea_functional_2(self):
         x = 3
         y = 21
-        self.assertEqual(eea(x, y),{"gcd":3, "a":1, "x":3, "b":0, "y":21})
+        self.assertEqual(eea(x, y),{"gcd":3, "a":1, "x":21, "b":0, "y":3})
 
     def test_eea_functional_3(self):
         x = 63451367846845
         y = 52352467468873425
-        self.assertEqual(eea(x, y), {"gcd":5, "a":4310308599955094, "x":63451367846845, "b":-5224108618601, "y":52352467468873425})
+        self.assertEqual(eea(x, y), {"gcd":5, "a":4310308599955094, "x":52352467468873425, "b":-5224108618601, "y":63451367846845})
 
     def test_eea_functional_4(self):
         x = 0
