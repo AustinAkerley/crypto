@@ -12,7 +12,7 @@ from crypto.src.encode_unicode import encode_unicode
 class TestEncodeUnicode(unittest.TestCase):
     def test_encode_unicode_functional_1(self):
         message = "a"
-        result = 97
+        result = [97]
         self.assertEqual(encode_unicode(message), result)
 
     def test_encode_unicode_functional_2(self):

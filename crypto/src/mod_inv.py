@@ -13,13 +13,17 @@
 from crypto.src.eea import eea
 
 def mod_inv(a, m): # Where a*b = 1 mod(m)
-    eea_res = eea(a, m)
-    inv = eea_res.get("a")
-    if eea_res["gcd"] != 1:
-        if eea_res["gcd"] != m:
-            print(str(eea_res["gcd"]) + " divides N = {"+str(m)+"}" )
-        return (None, eea_res["gcd"])
-    inv = (inv % m)
+    inv = None
+    if a == 0 or m == 0:
+        inv = 0
+    else:
+        eea_res = eea(a, m)
+        inv = eea_res.get("a")
+        if eea_res["gcd"] != 1:
+            if eea_res["gcd"] != m:
+                print(str(eea_res["gcd"]) + " divides N = {"+str(m)+"}" )
+            return (None, eea_res["gcd"])
+        inv = (inv % m)
     return inv
 
 # OUTPUT - type: int
