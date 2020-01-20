@@ -1,18 +1,17 @@
 #!/usr/bin/python3
-# Title: Unit Test for Elliptic Curve Diffe-Hellman Key Exchange
+# Title: Unit Test for Modular Square Root
 # Creator: Austin Akerley
 # Date Created: 12/28/2019
 # Last Editor: Austin Akerley
-# Date Last Edited:12/28/2019
-# Associated Book Page Nuber: XXXXXXXX
+# Date Last Edited: 01/19/2020
+# Associated Book Page Nuber: 169
 
 import unittest
 from crypto.src.mod_sqrt import mod_sqrt
 from crypto.src.small_primes_generator import small_primes_generator
 
 class TestModSqrt(unittest.TestCase):
-
-    def test_mod_sqrt_1(self):
+    def test_mod_sqrt_functional_1(self):
         #test with prime 1 mod 8
         m = 977
         orig_x = 745
@@ -20,7 +19,7 @@ class TestModSqrt(unittest.TestCase):
         x = mod_sqrt(a, m)
         self.assertIn(orig_x, x)
 
-    def test_mod_sqrt_2(self):
+    def test_mod_sqrt_functional_2(self):
         #test with prime 5 mod 8
         orig_x = None
         primes = small_primes_generator(1000)
@@ -32,7 +31,7 @@ class TestModSqrt(unittest.TestCase):
                 x = mod_sqrt(a, m)
                 self.assertIn(orig_x, x)
 
-    def test_mod_sqrt_3(self):
+    def test_mod_sqrt_functional_3(self):
         #test with prime 3 mod 8
         m = 563
         orig_x = 109
@@ -40,7 +39,7 @@ class TestModSqrt(unittest.TestCase):
         x = mod_sqrt(a, m)
         self.assertIn(orig_x, x)
 
-    def test_mod_sqrt_4(self):
+    def test_mod_sqrt_functional_4(self):
         #test with prime 7 mod 8
         m = 719
         orig_x = 230

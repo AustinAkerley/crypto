@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-# Author: Austin Akerley
-# Date Last Edited: 10/31/2019
-#
-from crypto.src.mod_inv import mod_inv
+# Title: Unit Test for Modular Multiplicative Inverse
+# Creator: Austin Akerley
+# Date Created: 12/26/2019
+# Last Editor: Austin Akerley
+# Date Last Edited: 01/19/2020
+# Associated Book Page Nuber: N/A
+
 import unittest
+from crypto.src.mod_inv import mod_inv
 
 class TestModInv(unittest.TestCase):
     def test_mod_inv_1(self):
