@@ -2,11 +2,17 @@
 # Creator: Austin Akerley
 # Date Created: 11/26/2019
 # Last Editor: Austin Akerley
-# Date Last Edited:12/28/2019
-# Associated Book Page Nuber: XXXXXXXX
+# Date Last Edited: 01/20/2020
+# Associated Book Page Nuber: 1
+
+# INPUT(s) -
+# key - type: int | str, desc: This is the key by which to shift the message
+# plain_text - type: string | list of strings | list of ints | dict of strings, desc: This the plaintext in whatever structure you want to encrypt
+# cipher_text - type: string | list of strings | list of ints | dict of strings, desc: This is the cipher text by which you should decrypt
+# mode - type: string, desc: This is the mode of encoding characters that the substitution cipher should follow
 
 class substitution:
-    #Class variables
+    # Class variables
     _MODE = ["alphabetic", "ascii", "ascii_ext", "unicode"]
     mode = "ascii"
     mod = 128

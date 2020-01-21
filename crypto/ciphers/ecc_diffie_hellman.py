@@ -1,16 +1,21 @@
-# Title: Elliptic Cujrve Diffie-Hellman Key Exchange
+# Title: Elliptic Curve Diffie-Hellman Key Exchange
 # Creator: Daniel Gerthe
 # Date Created: 12/28/2019
 # Last Editor: Austin Akerley
-# Date Last Edited:12/28/2019
-# Associated Book Page Nuber: XXXXXXXX
+# Date Last Edited: 01/20/2020
+# Associated Book Page Nuber: 316
+
+# INPUT(s) -
+# E - type: curve, desc: the elliptic curve which to do the mathsss on
+# P - type: tuple, desc: the shared public point
 
 import random
 from crypto.ecc.curve import curve
 from crypto.src.mod_sqrt import mod_sqrt
+from crypto.src.fast_power import fast_power
 
-class ecc_diffie_hellman(object):
-    def __init__(self, E = None, P = None):
+class ecc_diffie_hellman:
+    def __init__(self, E, P):
         self.style = ["whole point", "x only"]
         self.E = E;
         if isinstance(P, int):
@@ -44,16 +49,20 @@ class ecc_diffie_hellman(object):
             print("invalid type")
             return None
 
-    def symmetric_keygen(self, QB = None, private_key = None, output_type = "x only" ):
+    def symmetric_keygen(self, QB, private_key = None, output_type = "x only" ):
         if private_key is not None:
             self.private_key = private_key
-        if None in [self.E, self.private_key, QB]:
+        if QB is not None:
+            self.QB = QB
+        if None in [self.E, self.private_key]:
             return None;
-        if isinstance(QB, int):
-            y2 = (fast_power(QB, 3, self.E.modulus).get("result") + (QB*E.A) + E.B) % self.E.modulus
+        if isinstance(self.QB, int):
+            y2 = (fast_power(self.QB, 3, self.E.modulus).get("result") + (self.QB*self.E.A) + self.E.B) % self.E.modulus
             y = mod_sqrt(y2, self.E.modulus)[0]
-            self.QB = (QB, y)
-        sym_point = self.E.multiply(QB, self.private_key)
+            self.QB = (self.QB, y)
+        print("QB:")
+        print(QB)
+        sym_point = self.E.multiply(self.QB, self.private_key)
         sym_key = sym_point[0]
         if output_type == self.style[0]:
             return sym_point

@@ -33,4 +33,8 @@ def ecc_dlog_lsbs(P, R, E):
             n = (ji - dict2.get(ji_P)) % E.modulus
         elif ki_P_R in dict1.keys():
             n = (dict1.get(ki_P_R) - ki) % E.modulus
+
     return n
+
+# OUTPUT - type: int
+# n - type: int, desc: n where P*n = R on Elliptic Curve E

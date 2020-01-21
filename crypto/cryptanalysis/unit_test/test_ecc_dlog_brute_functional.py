@@ -8,14 +8,14 @@
 
 import unittest
 from crypto.ecc.curve import curve
-from crypto.cryptanalysis.ecc_dlog_brute import ecc_brute
+from crypto.cryptanalysis.ecc_dlog_brute import ecc_dlog_brute
 
 class TestECCDLogBrute(unittest.TestCase):
     def test_brute_ecc_dlog_functional_1(self):
         E = curve(8,7,73);
         P = (32 , 53)
         R = (39, 17)
-        n = ecc_brute(P, R, E)
+        n = ecc_dlog_brute(P, R, E)
         print("n: " + str(n));
         self.assertEqual(n, 11)
 
@@ -23,7 +23,7 @@ class TestECCDLogBrute(unittest.TestCase):
         E = curve(8,7,73);
         P = (32 , 53)
         R = (35, 47)
-        n = ecc_brute(P, R, E)
+        n = ecc_dlog_brute(P, R, E)
         print("n: " + str(n));
         self.assertEqual(n, 37)
 
@@ -31,9 +31,17 @@ class TestECCDLogBrute(unittest.TestCase):
         E = curve(8,7,73);
         P = (32 , 53)
         R = (58, 4)
-        n = ecc_brute(P, R, E)
+        n = ecc_dlog_brute(P, R, E)
         print("n: " + str(n));
         self.assertEqual(n, 28)
+
+    def test_brute_ecc_dlog_functional_4(self):
+        E = curve(8,7,73);
+        P = (32 , 53)
+        R = (35, 47)
+        n = ecc_dlog_brute(P, R, E)
+        print("n: " + str(n));
+        self.assertEqual(n, 37)
 
 if __name__ == "__main__":
     unittest.main()

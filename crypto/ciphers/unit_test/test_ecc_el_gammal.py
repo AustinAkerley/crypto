@@ -3,7 +3,7 @@
 # Creator: Austin Akerley
 # Date Created: 11/26/2019
 # Last Editor: Austin Akerley
-# Date Last Edited:12/28/2019
+# Date Last Edited: 01/20/2020
 # Associated Book Page Nuber: XXXXXXXX
 
 from crypto.ciphers.ecc_el_gammal import ecc_el_gammal

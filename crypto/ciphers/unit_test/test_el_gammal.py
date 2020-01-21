@@ -3,8 +3,8 @@
 # Creator: Austin Akerley
 # Date Created: 11/26/2019
 # Last Editor: Austin Akerley
-# Date Last Edited:12/28/2019
-# Associated Book Page Nuber: XXXXXXXX
+# Date Last Edited: 01/20/2020
+# Associated Book Page Nuber: 70
 
 from crypto.ciphers.el_gammal import el_gammal
 import unittest
@@ -12,11 +12,11 @@ import unittest
 class TestElGammalCipher(unittest.TestCase):
     def test_el_gammal_cipher(self):
         print("el_gammal pub_key generation 1")
-        BobEG1 = el_gammal(generator=2, private_key=153,modulus=467)
+        BobEG1 = el_gammal(g=2, private_key=153,modulus=467)
         pub_key_1 = BobEG1.gen_public_key()
         print(str(pub_key_1))
         self.assertEqual(pub_key_1, 224)
-        AliceEG1 = el_gammal(generator=2, modulus=467, public_key=pub_key_1)
+        AliceEG1 = el_gammal(g=2, modulus=467, public_key=pub_key_1)
         c1_c2 = AliceEG1.encrypt(message=331, k =197)
         print(str(c1_c2))
         self.assertEqual(c1_c2, [87, 57])
