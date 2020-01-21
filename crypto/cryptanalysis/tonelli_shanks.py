@@ -2,15 +2,15 @@
 # Creator: Austin Akerley
 # Date Created: 12/25/2019
 # Last Editor: Austin Akerley
-# Date Last Edited:12/28/2019
+# Date Last Edited: 01/20/2020
 # Associated Book Page Nuber: XXXXXXXX
 # WARNING: MIGH NOT WORK AS INTENDED NOT ALL EDGE CASES ARE HANDLED YET
 # TODO: MULTI PROCESS, FILES INSTEAD OF MEMORY, MAKE ORDER BETTER
 
 # INPUTS:
-# g : int - the small_primes_generator
-# h : int - the result of the exponentiation
-# p : int - the prime modulus
+# g - type: int, desc: the small_primes_generator
+# h - type: int, desc: the result of the exponentiation
+# p - type: int, desc: the prime modulus
 
 from math import log2
 from math import sqrt
@@ -45,4 +45,4 @@ def tonelli_shanks(g, h, p): #Solving x given g,h,p for the equation g^x (mod p)
                 x = list_one.get(gk) + (list_two.get(huk) * n)
                 return x
 # OUTPUTS:
-# x : int - x where x = logg(h) (mod p)
+# x - type: int, desc: x where x = log(h) (mod p)

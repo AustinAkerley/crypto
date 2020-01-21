@@ -2,13 +2,13 @@
 # Creator: Austin Akerley
 # Date Created: 12/25/2019
 # Last Editor: Austin Akerley
-# Date Last Edited:12/28/2019
-# Associated Book Page Nuber: XXXXXXXX
+# Date Last Edited: 01/20/2020
+# Associated Book Page Nuber: N/A
 # WARNING: THIS IS A NON-COMPLETE WAY OF FINDING THE ORDER, NEED TO FIX SOMEDAY
 
-# INPUTS:
-# g : int - the element to which you're finding the order of in the field of prime p
-# p : int - the prime to which you are in the field of
+# INPUT(s) -
+# g - type: int, desc: the element to which you're finding the order of in the field of prime p
+# p - type: int, desc: the prime to which you are in the field of
 
 from crypto.src.small_primes_generator import small_primes_generator
 from crypto.src.fast_power import fast_power
@@ -29,7 +29,7 @@ def order(g, p, smooth=1000):
             print("order: "+str(order))
             return {"order":order, "divisors":divisors, "prime_factors":prime_factors}
 
-# OUTPUTS: dictionary
+# OUTPUT - type: dictionary
 # {
 #     "order" : order, - The true result of the function, tells you the order of g in field Fp
 #     "divisors" : divisors, - All of the divisors of p-1
