@@ -3,7 +3,7 @@
 # Creator: Daniel Gerthe
 # Date Created: 12/28/2019
 # Last Editor: Austin Akerley
-# Date Last Edited:12/28/2019
+# Date Last Edited: 01/20/2020
 # Associated Book Page Nuber: XXXXXXXX
 # WARNING: This doesn't really work yet
 
@@ -12,7 +12,7 @@ from crypto.ecc.curve import curve
 from crypto.cryptanalysis.ecc_dlog_lsbs import ecc_dlog_lsbs
 
 class TestECCDLogLSBS(unittest.TestCase):
-    def test_ecc_dlog_lsbs_1(self):
+    def test_ecc_dlog_lsbs_functional_1(self):
         E = curve(8,7,73);
         P = (32 , 53)
         R = (39, 17)
@@ -21,7 +21,7 @@ class TestECCDLogLSBS(unittest.TestCase):
         print("n: " + str(n));
         self.assertEqual(n, 11)
 
-    def test_ecc_dlog_lsbs_2(self):
+    def test_ecc_dlog_lsbs_functional_2(self):
         E = curve(8,7,73);
         P = (32 , 53)
         R = (35, 47)
@@ -29,7 +29,7 @@ class TestECCDLogLSBS(unittest.TestCase):
         print("n: " + str(n));
         self.assertEqual(n, 37)
 
-    def test_ecc_dlog_lsbs_3(self):
+    def test_ecc_dlog_lsbs_functional_3(self):
         E = curve(8,7,73);
         P = (32 , 53)
         R = (58, 4)

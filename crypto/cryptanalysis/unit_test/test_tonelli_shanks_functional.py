@@ -12,7 +12,7 @@ from crypto.cryptanalysis.tonelli_shanks import tonelli_shanks
 from crypto.src.fast_power import fast_power
 
 class TestTonelliShanks(unittest.TestCase):
-    def test_tonelli_shanks_1(self):
+    def test_tonelli_shanks_functional_1(self):
         h = 13896
         g = 9704
         expect_x = 1159
@@ -27,7 +27,7 @@ class TestTonelliShanks(unittest.TestCase):
         print("5 digit prime took: "+str(stop-start)+" seconds")
         self.assertEqual(x, expect_x)
 
-    def test_tonelli_shanks_2(self):
+    def test_tonelli_shanks_functional_2(self):
         g = 2
         e = 5621299
         p = 15485863 # 8 digits
@@ -40,7 +40,7 @@ class TestTonelliShanks(unittest.TestCase):
         #print("x: "+str(x))
         self.assertEqual(x, e)
 
-    def test_tonelli_shanks_3(self):
+    def test_tonelli_shanks_functional_3(self):
         g = 42389
         e = 97234565
         p = 160481183 # 9 digits
@@ -53,7 +53,7 @@ class TestTonelliShanks(unittest.TestCase):
         #print("x: "+str(x))
         self.assertEqual(x, e)
 
-    def test_tonelli_shanks_4(self):
+    def test_tonelli_shanks_functional_4(self):
         g = 8538429
         e = 293587245
         p = 5915587277 # 9 digits
@@ -78,8 +78,6 @@ class TestTonelliShanks(unittest.TestCase):
     #     #print("12 digit prime took: "+str(stop-start)+" seconds")
     #     #print("x: "+str(x))
     #     self.assertEqual(x, e)
-
-
 
 if __name__ == '__main__':
     unittest.main()

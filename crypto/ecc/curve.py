@@ -2,17 +2,22 @@
 # Creator: Austin Akerley
 # Date Created: 12/25/2019
 # Last Editor: Austin Akerley
-# Date Last Edited:12/28/2019
-# Associated Book Page Nuber: XXXXXXXX
+# Date Last Edited: 01/20/2020
+# Associated Book Page Nuber: 299
 
-from math import log2
+# INPUT(s) -
+# A - type: int, desc: coefficent of x
+# B - type: int, desc: constant for the curve
+# modulus - type: int, desc: modulus for the curve that defines the field it's in
+
 import random
+from math import log2
 from crypto.src.mod_inv import mod_inv
 from crypto.src.fast_power import fast_power
 from crypto.src.mod_sqrt import mod_sqrt
 
 class curve:
-    def __init__(self, A, B, modulus = None): # Curve is y^2 = x^3 + A*x + B
+    def __init__(self, A, B, modulus): # Curve is of the mathematical form: y^2 = x^3 + A*x + B
         self.A = A
         self.B = B
         self.modulus = modulus
@@ -21,7 +26,7 @@ class curve:
         self.max_msg = 0
         for _ in range(0, self.l):
             self.max_msg = (self.max_msg << 1) | 1
-    
+
     def is_point_on_curve(self, P):
         if isinstance(P, int):
             P = self.get_point(P)
@@ -34,7 +39,7 @@ class curve:
         y = mod_sqrt(y2, self.modulus)
         if y is None: return None;
         return (x, y[0])
-    
+
     def msg_to_point(self, m):
         if m > self.max_msg:
             return None
@@ -47,10 +52,12 @@ class curve:
             if P is not None and self.is_point_on_curve(P):
                 found_point = True
         return P
-    
+
     def point_to_msg(self, P):
         if isinstance(P, tuple):
             P = P[0]
+        if P is None:
+            return None
         return P & self.max_msg;
 
     def slope(self, P, Q): # Where P and Q are tuples

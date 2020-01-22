@@ -3,8 +3,8 @@
 # Creator: Austin Akerley
 # Date Created: 11/26/2019
 # Last Editor: Austin Akerley
-# Date Last Edited:11/26/2019
-# Associated Book Page Nuber: XXXXXXXX
+# Date Last Edited: 01/20/2020
+# Associated Book Page Nuber: 1
 
 import unittest
 from crypto.ciphers.substitution import substitution

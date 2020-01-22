@@ -3,37 +3,45 @@
 # Creator: Daniel Gerthe
 # Date Created: 12/28/2019
 # Last Editor: Austin Akerley
-# Date Last Edited:12/28/2019
-# Associated Book Page Nuber: XXXXXXXX
+# Date Last Edited: 01/20/2020
+# Associated Book Page Nuber: 310
 
 import unittest
 from crypto.ecc.curve import curve
-from crypto.cryptanalysis.ecc_dlog_brute import ecc_brute
+from crypto.cryptanalysis.ecc_dlog_brute import ecc_dlog_brute
 
 class TestECCDLogBrute(unittest.TestCase):
-    def test_brute_ecc_dlog_1(self):
+    def test_brute_ecc_dlog_functional_1(self):
         E = curve(8,7,73);
         P = (32 , 53)
         R = (39, 17)
-        n = ecc_brute(P, R, E)
+        n = ecc_dlog_brute(P, R, E)
         print("n: " + str(n));
         self.assertEqual(n, 11)
 
-    def test_brute_ecc_dlog_2(self):
+    def test_brute_ecc_dlog_functional_2(self):
         E = curve(8,7,73);
         P = (32 , 53)
         R = (35, 47)
-        n = ecc_brute(P, R, E)
+        n = ecc_dlog_brute(P, R, E)
         print("n: " + str(n));
         self.assertEqual(n, 37)
 
-    def test_brute_ecc_dlog_3(self):
+    def test_brute_ecc_dlog_functional_3(self):
         E = curve(8,7,73);
         P = (32 , 53)
         R = (58, 4)
-        n = ecc_brute(P, R, E)
+        n = ecc_dlog_brute(P, R, E)
         print("n: " + str(n));
         self.assertEqual(n, 28)
+
+    def test_brute_ecc_dlog_functional_4(self):
+        E = curve(8,7,73);
+        P = (32 , 53)
+        R = (35, 47)
+        n = ecc_dlog_brute(P, R, E)
+        print("n: " + str(n));
+        self.assertEqual(n, 37)
 
 if __name__ == "__main__":
     unittest.main()

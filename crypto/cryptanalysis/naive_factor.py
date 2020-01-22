@@ -2,12 +2,12 @@
 # Creator: Austin Akerley
 # Date Created: 12/25/2019
 # Last Editor: Austin Akerley
-# Date Last Edited:12/28/2019
-# Associated Book Page Nuber: XXXXXXXX
+# Date Last Edited: 01/20/2020
+# Associated Book Page Nuber: N/A
 
-# INPUTS:
-# h : int  - integer to factor
-# smooth : int - tells the program the highest prime to check if divisble by
+# INPUT(s) -
+# h - type: int, desc: number to try to factor
+# smooth - type: int, desc: tells the program the upper limit to check if divisble by
 
 from crypto.src.small_primes_generator import small_primes_generator
 
@@ -43,7 +43,7 @@ def naive_factor(h, smooth=1000):
                 divisors.append(nd)
     return {"divisors":divisors, "prime_factors": prime_factors}
 
-# OUTPUTS: dictionary
+# OUTPUT - type: dictionary
 # {
 #    "divisors" : divisors -  list of int - a list of unique divisors of h, h%divisors = 0 for all divisors
 #    "prime_factors" : prime factors -  list of int - a list of all of the numbers to make up h, h = prime_factors[0]*prime_factors[1]*...*prime_factors[n]

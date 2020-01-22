@@ -2,8 +2,12 @@
 # Creator: Austin Akerley
 # Date Created: 12/30/2019
 # Last Editor: Austin Akerley
-# Date Last Edited:12/30/2019
+# Date Last Edited: 01/20/2020
 # Associated Book Page Nuber: 319
+
+# INPUT(s) -
+# E - type: curve, desc: the elliptic curve which to do the mathsss on
+# P - type: tuple, desc: the shared public pointd
 
 import random
 from crypto.ecc.curve import curve
@@ -63,11 +67,11 @@ class ecc_el_gammal:
                 y2 = (fast_power(QB, 3, self.E.modulus).get("result") + (QB*self.E.A) + self.E.B) % self.E.modulus
                 y = mod_sqrt(y2, self.E.modulus)[0]
                 QB = (QB, mod_sqrt(y, self.E.modulus)[0])
-                
+
         M = self.E.msg_to_point(plain_text)
-        
+
         k = random.randint(1, self.E.modulus)
-        
+
         C1 = self.E.multiply(k,P)
         C2 = self.E.add(M, E.multiply(k, QB))
         if output_type == self.style[0]:

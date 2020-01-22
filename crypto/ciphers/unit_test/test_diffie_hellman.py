@@ -1,10 +1,10 @@
-diffie#!/usr/bin/python3
+#!/usr/bin/python3
 # Title: Unit Test for Diffie-Hellman Key Exchange
 # Creator: Austin Akerley
 # Date Created: 11/26/2019
 # Last Editor: Austin Akerley
-# Date Last Edited:12/28/2019
-# Associated Book Page Nuber: XXXXXXXX
+# Date Last Edited: 01/20/2020
+# Associated Book Page Nuber: 67
 
 import unittest
 from crypto.ciphers.diffie_hellman import diffie_hellman
