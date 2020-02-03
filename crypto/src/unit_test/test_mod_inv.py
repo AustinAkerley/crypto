@@ -31,14 +31,14 @@ class TestModInv(unittest.TestCase):
     def test_mod_inv_4(self):
         a = 173920
         m = 100207
-        b = 5541
-        self.assertEqual(mod_inv(a, m), b)
+        with self.assertRaises(ValueError):
+            self.assertEqual(mod_inv(a, m), b)
 
     def test_mod_inv_5(self):
         a = 0
         m = 7
-        b = 0
-        self.assertEqual(mod_inv(a, m), b)
+        with self.assertRaises(ValueError):
+            self.assertEqual(mod_inv(a, m), b)
 
 if __name__ == '__main__':
     unittest.main()

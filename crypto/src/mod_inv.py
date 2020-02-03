@@ -2,7 +2,7 @@
 # Creator: Austin Akerley
 # Date Created: 11/26/2019
 # Last Editor: Austin Akerley
-# Date Last Edited: 01/19/2020
+# Date Last Edited: 02/02/2020
 # Associated Book Page Nuber: 21
 # NOTE: NOT HAPPY WITH HOW THIS WAS DONE! NEED TO FIX SOON, SHOULD NOT HAVE A DICT RETUN, SEE ECC LENTRAS FASCT TO FIX
 
@@ -10,19 +10,31 @@
 # a - type: int, desc: divisor
 # m - type: int, desc: modulus
 
+# Formula: a * inv = 1 (mod m) for all a that does not divide m a.k.a 1/a = inv (mod m_)
+
+
+# Conditions:
+#    1.) a must be smaller than m
+#    2.) a and m not equal to 0 or less
+#    3.) a cannot divide m
+
 from crypto.src.eea import eea
 
 def mod_inv(a, m): # Where a*b = 1 mod(m)
     inv = None
-    if a == 0 or m == 0:
-        inv = 0
+    if m <= 0: # Error and Base Case Handling
+        raise ValueError("m cannot be 0 or less")
+    elif a > m:
+        raise ValueError("a cannot be larger than m")
+    elif a == 0:
+        return 0
+
     else:
         eea_res = eea(a, m)
         inv = eea_res.get("a")
         if eea_res["gcd"] != 1:
             if eea_res["gcd"] != m:
-                print(str(eea_res["gcd"]) + " divides N = {"+str(m)+"}" )
-            return (None, eea_res["gcd"])
+                raise ValueError("a divides m, there is no modular inverse for a:" + str(a)+" with modulo m: "+str(m))
         inv = (inv % m)
     return inv
 

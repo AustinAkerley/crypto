@@ -2,49 +2,50 @@
 # Creator: Austin Akerley
 # Date Created: 11/26/2019
 # Last Editor: Austin Akerley
-# Date Last Edited: 01/19/2020
+# Date Last Edited: 02/02/2020
 # Associated Book Page Nuber: 16
 
 # INPUT(s) -
 # x - type: int, desc: one of the inputs for the extended euclidean algorithm, example: 12345
 # y - type: int, desc: one of the inputs for the extended euclidean algorithm, example: 75232
 
-def eea(x, y): # gcd(x,y) = ax + by
-    flipped = False
-    if x==0 or y==0:
-        return {"gcd":0, "a":0, "x":0, "b":0, "y":0}
-    elif x==y:
-        return [x, 2, x -1, y]
-    elif x < y: # set x to be the bigger number
-        flipped = True
-        tmp=x
-        x=y
-        y=tmp
-    #Start of real algorithm
+# Formula: gcd(x,y) = ax + by
+
+# Conditions:
+#    1.) x must be smaller than y
+#    2.) x and y not equal to 0
+
+def eea(x, y):
+    if x <= 0 or y <= 0:
+        raise ValueError("x or y cannot be 0 or less")
+    elif x > y: # Error Handling
+        raise ValueError("x cannot be larger than y")
+
     starting_x = x
     starting_y = y
-    q = [0, 0]
-    r = [x, y]
-    s = [1, 0]
-    t = [0, 1]
-    remainder = None
-    i=1
-    while remainder != 0:
-        i+=1
-        quotient = int(x/y)
-        remainder = x%y
-        q.append(quotient)
-        r.append(remainder)
-        x=y
-        y=remainder
-        s.append(s[i-2]-(s[i-1]*q[i-1]))
-        t.append(t[i-2]-(t[i-1]*q[i-1]))
-    if flipped:
-        return {"gcd":r[i-1], "a":s[i], "x":starting_x, "b":t[i], "y":starting_y}
-    else:
-        return {"gcd":r[i-1], "a":t[i], "x":starting_x, "b":s[i], "y":starting_y}
+    q_l = 0
+    r_l = x
+    s = 0
+    s_l = 1
+    s_l2 = None
+    t = 1
+    t_l = 0
+    t_l2 = None
+    quotient_remainder = (None, None)
+    while quotient_remainder[1] != 0:
+        quotient_remainder = divmod(y, x)
+        y = x
+        x = quotient_remainder[1]
+        t_l2=t_l
+        t_l = t
+        s_l2=s_l
+        s_l = s
+        s = (s_l2-(s_l*q_l))
+        t = (t_l2-(t_l*q_l))
+        q_l = quotient_remainder[0]
+    return {"gcd": y, "a":s, "x":starting_x, "b":t, "y":starting_y} # a is mod inv of x
 
-# OUTPUT - type: dictionary
+# OUTPUT - type: dictionary or None
 # {
 #     "gcd" - type: int, desc: gcd(x, y),
 #     "a" - type: int, desc: a,

@@ -6,7 +6,7 @@
 # Date Last Edited: 01/20/2020
 # Associated Book Page Nuber: XXXXXXXX
 
-from crypto.ciphers.ecc_el_gammal import ecc_el_gammal
+from crypto.ciphers.public.ecc_el_gammal import ecc_el_gammal
 from crypto.ecc.curve import curve
 import unittest
 

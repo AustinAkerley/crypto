@@ -27,42 +27,9 @@ class curve:
         for _ in range(0, self.l):
             self.max_msg = (self.max_msg << 1) | 1
 
-    def is_point_on_curve(self, P):
-        if isinstance(P, int):
-            P = self.get_point(P)
-            if P is None:
-                return False
-        return (P[1] ** 2) == (fast_power(P[0], 3, self.modulus).get("result") + (self.A * P[0] % self.modulus) + self.B)
-
-    def get_point(self, x):
-        y2 = fast_power(x, 3, self.modulus).get("result") + (self.A * x % self.modulus) + self.B
-        y = mod_sqrt(y2, self.modulus)
-        if y is None: return None;
-        return (x, y[0])
-
-    def msg_to_point(self, m):
-        if m > self.max_msg:
-            return None
-        P = None
-        found_point = False
-        while not found_point:
-            r = random.randint(1, self.max_msg)
-            r = (r << self.l) | m
-            P = self.get_point(r)
-            if P is not None and self.is_point_on_curve(P):
-                found_point = True
-        return P
-
-    def point_to_msg(self, P):
-        if isinstance(P, tuple):
-            P = P[0]
-        if P is None:
-            return None
-        return P & self.max_msg;
-
     def slope(self, P, Q): # Where P and Q are tuples
         if P == Q:
-            inv_2y_p = mod_inv(2*P[1], self.modulus)
+            inv_2y_p = mod_inv((2*P[1]) % self.modulus, self.modulus)
             if isinstance(inv_2y_p, tuple):
                 d = inv_2y_p[1]
                 return [None, None, d]
@@ -93,6 +60,10 @@ class curve:
         return (xR, yR)
 
     def multiply(self, P, multiplier):
+        if (multiplier == 1):
+            return P
+        elif (multiplier == 2):
+            return self.add(P,P)
         multiplier = multiplier % self.modulus
         remainder = multiplier
         ternary_expansion = []
@@ -117,3 +88,22 @@ class curve:
                     if len(sum_pt) == 3:
                         return sum_pt
         return sum_pt
+
+    def calculate_y2(self, x):
+        return (fast_power(x, 3, self.modulus) + (self.A*x) + self.B) % self.modulus
+
+    def is_point_on_curve(self, P):
+        y2 = self.calculate_y2(P[0])
+        y = mod_sqrt(y2, self.modulus)
+        if y is not (None, None):
+            if y[0] == P[1] or y[1] == P[1]:
+                return True
+        return False
+
+    def calculate_point(self, x):
+        y2 = self.calculate_y2(x)
+        y = mod_sqrt(y2)
+        if y is (None, None):
+            return None
+        else:
+            return [(x, y[0]), (x, y[1])]

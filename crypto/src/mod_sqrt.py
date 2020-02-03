@@ -37,15 +37,15 @@ def mod_sqrt(a, modulus):
         while legendre_symbol(z, modulus) != -1:
             z = random.randint(1,modulus-1)
         # z is a non-quadratic residue
-        c = fast_power(z, m, modulus).get("result")
-        x = fast_power(a, (m+1)/2, modulus).get("result")
-        t = fast_power(a, m, modulus).get("result")
+        c = fast_power(z, m, modulus)
+        x = fast_power(a, (m+1)/2, modulus)
+        t = fast_power(a, m, modulus)
         while t != 1:
             i = 1
             for i in range(1, e):
-                if fast_power(t, 2**i, modulus).get("result") == 1:
+                if fast_power(t, 2**i, modulus) == 1:
                     break
-            b = fast_power(c, 2**(e-i-1), modulus).get("result")
+            b = fast_power(c, 2**(e-i-1), modulus)
             x = (b*x) % modulus
             t = (t*b*b) % modulus
             c = (b*b) % modulus
@@ -53,7 +53,7 @@ def mod_sqrt(a, modulus):
         root1 = x
         root2 = modulus-x
     elif modulus % 8 == 3 or modulus % 8 == 7:
-        x = fast_power(a, (modulus + 1) / 4, modulus).get("result")
+        x = fast_power(a, (modulus + 1) / 4, modulus)
         root1 = x
         root2 = (-x)%modulus
     return (root1, root2)

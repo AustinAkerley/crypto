@@ -12,7 +12,7 @@
 from crypto.src.fast_power import fast_power
 
 def legendre_symbol(a, modulus):
-    ap = fast_power(a, (modulus-1)/2, modulus).get("result")
+    ap = fast_power(a, (modulus-1)/2, modulus)
     l_symb = None
     if a==0:
         l_symb = 0

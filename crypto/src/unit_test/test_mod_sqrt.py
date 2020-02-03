@@ -8,19 +8,19 @@
 
 import unittest
 from crypto.src.mod_sqrt import mod_sqrt
-from crypto.src.small_primes_generator import small_primes_generator
+from crypto.cryptanalysis.small_primes_generator import small_primes_generator
 
 class TestModSqrt(unittest.TestCase):
-    def test_mod_sqrt_functional_1(self):
-        #test with prime 1 mod 8
+    def test_mod_sqrt_1(self):
+        # test with prime 1 mod 8, where there is a sqrt for a
         m = 977
         orig_x = 745
         a = (orig_x*orig_x) % m
         x = mod_sqrt(a, m)
         self.assertIn(orig_x, x)
 
-    def test_mod_sqrt_functional_2(self):
-        #test with prime 5 mod 8
+    def test_mod_sqrt_2(self):
+        # Bulk test with all the primes under 1000
         orig_x = None
         primes = small_primes_generator(1000)
         del primes[0]
@@ -31,21 +31,29 @@ class TestModSqrt(unittest.TestCase):
                 x = mod_sqrt(a, m)
                 self.assertIn(orig_x, x)
 
-    def test_mod_sqrt_functional_3(self):
-        #test with prime 3 mod 8
+    def test_mod_sqrt_3(self):
+        #test with prime 3 mod 8, where there is a sqrt for a
         m = 563
         orig_x = 109
         a = (orig_x*orig_x) % m
         x = mod_sqrt(a, m)
         self.assertIn(orig_x, x)
 
-    def test_mod_sqrt_functional_4(self):
-        #test with prime 7 mod 8
+    def test_mod_sqrt_4(self):
+        #test with prime 7 mod 8, where there is a sqrt for a
         m = 719
         orig_x = 230
         a = (orig_x*orig_x) % m
         x = mod_sqrt(a, m)
         self.assertIn(orig_x, x)
+
+    def test_mod_sqrt_5(self):
+        # Test where there is no sqrt
+        m = 3623
+        a = 88
+        expected_x = (None,None)
+        x = mod_sqrt(a, m)
+        self.assertEqual(expected_x, x)
 
 if __name__ == "__main__":
     unittest.main()

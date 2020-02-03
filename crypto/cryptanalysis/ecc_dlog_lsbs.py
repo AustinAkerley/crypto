@@ -21,19 +21,26 @@ def ecc_dlog_lsbs(P, R, E):
     n = None
     ji = None;
     ki = None;
-    for i in range(0, int(math.sqrt(E.modulus))+1):
-        ji = random.randint(1, E.modulus);
-        ki = random.randint(1, E.modulus);
+    for i in range(0, E.modulus):
+        ji = random.randint(1, E.modulus-1);
+        ki = random.randint(1, E.modulus-1);
         ji_P = E.multiply(P, ji)
+        print("i: "+str(i))
+        print("ji_P: "+str(ji_P) + "ji: " + str(ji))
         dict1.update({ji_P : ji});
         ki_P_R = E.add(E.multiply(P, ki), R)
+        print("ki_P_R: "+str(ki_P_R) + "ki: " + str(ki) + "\n")
         dict2.update({ki_P_R: ki})
         #Check as you loop
         if ji_P in dict2.keys():
             n = (ji - dict2.get(ji_P)) % E.modulus
+            print("ji_P: "+str(ji_P))
+            break
         elif ki_P_R in dict1.keys():
             n = (dict1.get(ki_P_R) - ki) % E.modulus
-
+            print("ki_P_R: "+str(ki_P_R))
+            break
+    print("\n\n\n\n")
     return n
 
 # OUTPUT - type: int

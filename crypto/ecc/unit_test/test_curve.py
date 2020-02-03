@@ -10,7 +10,7 @@ import unittest
 from crypto.ecc.curve import curve
 
 class TestCurve(unittest.TestCase):
-    def test_curve_functional_1(self):
+    def test_curve_add_functional_1(self):
         my_curve = curve(3,8,13)
         P = (9,7)
         Q = (1,8)
@@ -19,7 +19,7 @@ class TestCurve(unittest.TestCase):
         print("R: " + str(R))
         self.assertEqual(R, expected_R)
 
-    def test_curve_functional_2(self):
+    def test_curve_add_functional_2(self):
         my_curve = curve(3,8,13)
         P = (9,7)
         P2 = my_curve.add(P, P)
@@ -27,7 +27,7 @@ class TestCurve(unittest.TestCase):
         print("P2: " + str(P2))
         self.assertEqual(P2, expected_P2)
 
-    def test_curve_functional_3(self):
+    def test_curve_add_functional_3(self):
         my_curve = curve(3,8,13)
         P = (9,7)
         Q = (None, None)
@@ -60,11 +60,40 @@ class TestCurve(unittest.TestCase):
         print("P2: " + str(P2))
         self.assertEqual(P2, expected_P2)
 
-    def test_curve_point_convert_functional(self):
-        my_curve = curve(14, 19, 3623)
-        msg = 346
-        P = my_curve.msg_to_point(msg)
-        self.assertEqual(msg, my_curve.point_to_msg(P))
+    def test_curve_is_point_on_curve_functional_1(self):
+        my_curve = curve(14,19,3623)
+        P = (6,730)
+        Q = P
+        points = []
+        points.append(Q)
+        for i in range (1,3623):
+            Q = my_curve.add(P, Q)
+            points.append(Q)
+            
+    def test_curve_is_point_on_curve_functional_2(self):
+        my_curve = curve(14,19,3623)
+        P = (6,730)
+        Q = (3513, 2669)
+        on_curve = my_curve.is_point_on_curve(Q)
+        expected_on_curve = True
+        self.assertEqual(on_curve, expected_on_curve)
+
+    def test_curve_is_point_on_curve_functional_3(self):
+        my_curve = curve(14,19,3623)
+        P = (6,730)
+        Q = (3513, 2668)
+        on_curve = my_curve.is_point_on_curve(Q)
+        expected_on_curve = False
+        self.assertEqual(on_curve, expected_on_curve)
+
+    def test_curve_is_point_on_curve_functional_4(self):
+        my_curve = curve(14,19,3623)
+        P = (6,730)
+        Q = (3, 345)
+        on_curve = my_curve.is_point_on_curve(Q)
+        expected_on_curve = False
+        self.assertEqual(on_curve, expected_on_curve)
+
 
 if __name__ == '__main__':
     unittest.main()

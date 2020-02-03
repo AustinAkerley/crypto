@@ -9,7 +9,7 @@
 # h - type: int, desc: number to try to factor
 # smooth - type: int, desc: tells the program the upper limit to check if divisble by
 
-from crypto.src.small_primes_generator import small_primes_generator
+from crypto.cryptanalysis.small_primes_generator import small_primes_generator
 
 def naive_factor(h, smooth=1000):
     prime_factors = []
@@ -41,7 +41,13 @@ def naive_factor(h, smooth=1000):
         for nd in new_divisors:
             if nd not in divisors:
                 divisors.append(nd)
-    return {"divisors":divisors, "prime_factors": prime_factors}
+    prime_factors_dict = {}
+    for prime_factor in prime_factors:
+        if prime_factor not in prime_factors_dict:
+            prime_factors_dict.update({prime_factor:1})
+        else:
+            prime_factors_dict[prime_factor] += 1
+    return {"divisors":divisors, "prime_factors": prime_factors, "prime_factors_dict" : prime_factors_dict}
 
 # OUTPUT - type: dictionary
 # {

@@ -7,7 +7,7 @@
 # Associated Book Page Nuber: 67
 
 import unittest
-from crypto.ciphers.diffie_hellman import diffie_hellman
+from crypto.ciphers.public.diffie_hellman import diffie_hellman
 
 class TestDiffieHellman(unittest.TestCase):
     def test_diffie_hellman_1(self):

@@ -10,7 +10,7 @@
 # g - type: int, desc: the element to which you're finding the order of in the field of prime p
 # p - type: int, desc: the prime to which you are in the field of
 
-from crypto.src.small_primes_generator import small_primes_generator
+from crypto.cryptanalysis.small_primes_generator import small_primes_generator
 from crypto.src.fast_power import fast_power
 from crypto.cryptanalysis.naive_factor import naive_factor
 

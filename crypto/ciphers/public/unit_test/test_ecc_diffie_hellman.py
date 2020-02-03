@@ -8,7 +8,7 @@
 
 import unittest
 from crypto.ecc.curve import curve
-from crypto.ciphers.ecc_diffie_hellman import ecc_diffie_hellman
+from crypto.ciphers.public.ecc_diffie_hellman import ecc_diffie_hellman
 
 class TestECCDiffieHellman(unittest.TestCase):
     def test_ecc_diffie_1(self):
