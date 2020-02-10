@@ -13,7 +13,7 @@
 
 import random
 import math
-from crypto.ecc.curve import curve
+from crypto.ecc.src.curve import curve
 
 def ecc_dlog_lsbs(P, R, E):
     dict1 = {}

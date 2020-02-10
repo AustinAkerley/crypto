@@ -2,7 +2,7 @@
 # Creator: Austin Akerley
 # Date Created: 12/25/2019
 # Last Editor: Austin Akerley
-# Date Last Edited: 01/20/2020
+# Date Last Edited: 02/03/2020
 # Associated Book Page Nuber: N/A
 
 # INPUT(s) -
@@ -15,7 +15,6 @@ def naive_factor(h, smooth=1000):
     prime_factors = []
     small_primes = small_primes_generator(smooth)
     divisors = []
-    #  Naive stratedgy for computing order
     # Compile a list of factors up to a certain smoothness then attempt to find the smallest solution to g^c % p = 1 , where c is any combination of the factors of g
     for prime in small_primes:
         while h % prime == 0:
@@ -53,4 +52,5 @@ def naive_factor(h, smooth=1000):
 # {
 #    "divisors" : divisors -  list of int - a list of unique divisors of h, h%divisors = 0 for all divisors
 #    "prime_factors" : prime factors -  list of int - a list of all of the numbers to make up h, h = prime_factors[0]*prime_factors[1]*...*prime_factors[n]
+#    "prime_factors_dict" : prime_factors_dict - dictionary of factors and the power they're raised to to make up h
 # }

@@ -10,7 +10,7 @@
 # R - type: tuple, desc: result of the multiplication
 # E - type: curve, desc: The curve on which P and R were created
 
-from crypto.ecc.curve import curve
+from crypto.ecc.src.curve import curve
 
 def ecc_dlog_brute(P, R, E):
     n = None

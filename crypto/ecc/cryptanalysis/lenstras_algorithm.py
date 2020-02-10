@@ -11,7 +11,7 @@
 import random
 from math import sqrt
 from math import log2
-from crypto.ecc.curve import curve
+from crypto.ecc.src.curve import curve
 from crypto.src.mod_inv import mod_inv
 
 def lenstras_algorithm(n): # n is a composite number of two large primes, p and q ; n = p*q

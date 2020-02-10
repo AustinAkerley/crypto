@@ -9,6 +9,8 @@
 # a - type: int, desc: the number ur computing the sqrt of in the group {0,1,2...,modulus-1}
 # modulus - type: int, desc: the modulus that defines the group of numbers
 
+# Formula: (root1, root2) = sqrt(a) (mod modulus)
+
 import random
 from crypto.src.fast_power import fast_power
 from crypto.src.legendre_symbol import legendre_symbol
@@ -17,10 +19,9 @@ def mod_sqrt(a, modulus):
     root1 = None
     root2 = None
     if legendre_symbol(a, modulus) != 1:
-#         print("a {"+str(a)+"} has no square root modulo {"+str(modulus)+"}")
         root1 = None
         root2 = None
-    elif modulus % 2 == 0: # Non-prime modulus's are not supported yet. Should have it soon
+    elif modulus % 2 == 0: # Non-prime modulus's are not supported
         print("Not a prime")
         root1 = None
         root2 = None
@@ -34,9 +35,8 @@ def mod_sqrt(a, modulus):
         m = n
         e = s
         z = random.randint(1,modulus-1)
-        while legendre_symbol(z, modulus) != -1:
+        while legendre_symbol(z, modulus) != -1: # z is a non-quadratic residue
             z = random.randint(1,modulus-1)
-        # z is a non-quadratic residue
         c = fast_power(z, m, modulus)
         x = fast_power(a, (m+1)/2, modulus)
         t = fast_power(a, m, modulus)
@@ -60,6 +60,6 @@ def mod_sqrt(a, modulus):
 
 # OUTPUT - type: tuple
 # (
-# root1 - type: int, desc: One of the two roots of | sqrt(a) (mod modulus) |
-# root2 - type: int, desc: One of the two roots of | sqrt(a) (mod modulus) |
-#)
+#   root1 - type: int, desc: One of the two roots of | sqrt(a) (mod modulus) |
+#   root2 - type: int, desc: One of the two roots of | sqrt(a) (mod modulus) |
+# )

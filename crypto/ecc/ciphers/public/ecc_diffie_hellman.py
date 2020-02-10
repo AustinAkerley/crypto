@@ -10,7 +10,7 @@
 # P - type: tuple, desc: the shared public point
 
 import random
-from crypto.ecc.curve import curve
+from crypto.ecc.src.curve import curve
 from crypto.src.mod_sqrt import mod_sqrt
 from crypto.src.fast_power import fast_power
 

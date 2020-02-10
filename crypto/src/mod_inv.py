@@ -2,16 +2,14 @@
 # Creator: Austin Akerley
 # Date Created: 11/26/2019
 # Last Editor: Austin Akerley
-# Date Last Edited: 02/02/2020
+# Date Last Edited: 02/09/2020
 # Associated Book Page Nuber: 21
-# NOTE: NOT HAPPY WITH HOW THIS WAS DONE! NEED TO FIX SOON, SHOULD NOT HAVE A DICT RETUN, SEE ECC LENTRAS FASCT TO FIX
 
 # INPUT(S) -
 # a - type: int, desc: divisor
 # m - type: int, desc: modulus
 
 # Formula: a * inv = 1 (mod m) for all a that does not divide m a.k.a 1/a = inv (mod m_)
-
 
 # Conditions:
 #    1.) a must be smaller than m

@@ -14,24 +14,20 @@ from crypto.cryptanalysis.small_primes_generator import small_primes_generator
 from crypto.src.fast_power import fast_power
 from crypto.cryptanalysis.naive_factor import naive_factor
 
-def order(g, p, smooth=1000):
+def order(g, p, smooth=10000):
+    # Naive order method
+    if p<1000:
+        for i in range(1, p):
+            if fast_power(g,i,p) == 1:
+                ord = i
+                return ord
     h = p-1
-    div_and_factors = naive_factor(h)
-    divisors = div_and_factors["divisors"]
-    prime_factors = div_and_factors["prime_factors"]
+    divisors = naive_factor(h).get("divisors")
     # Prime factors and divisors retrieved
-    known_powers = {}
-    for divisor in sorted(divisors): # This should iterate smallest to largest, that way we get teh smallest divisor of e
-        result = fast_power(g, divisor, p, known_powers)
-        known_powers = result["known_powers"]
-        if result["result"] == 1: # divisor is the order of g
-            order = divisor
-            print("order: "+str(order))
-            return {"order":order, "divisors":divisors, "prime_factors":prime_factors}
+    for ord in sorted(divisors): # This should iterate smallest to largest, that way we get teh smallest divisor of e
+        result = fast_power(g, ord, p)
+        if result == 1: # divisor is the order of g
+            return ord
 
-# OUTPUT - type: dictionary
-# {
-#     "order" : order, - The true result of the function, tells you the order of g in field Fp
-#     "divisors" : divisors, - All of the divisors of p-1
-#     "prime_factors":prime_factors - All of the prime factors of p-1
-# }
+# OUTPUT - type: int
+# ord - type: int, desc: The order of element g in the field p

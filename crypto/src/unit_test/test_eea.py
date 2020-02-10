@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-# Title: Functional Unit Test for Extended Euclidean Algorithm
+# Title: Unit Test for Extended Euclidean Algorithm
 # Creator: Austin Akerley
 # Date Created: 11/26/2019
 # Last Editor: Austin Akerley
-# Date Last Edited: 02/02/2020
+# Date Last Edited: 02/09/2020
 
 import unittest
 from crypto.src.eea import eea #UUT
