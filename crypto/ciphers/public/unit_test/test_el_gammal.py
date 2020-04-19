@@ -6,7 +6,7 @@
 # Date Last Edited: 01/20/2020
 # Associated Book Page Nuber: 70
 
-from crypto.ciphers.el_gammal import el_gammal
+from crypto.ciphers.public.el_gammal import el_gammal
 import unittest
 
 class TestElGammalCipher(unittest.TestCase):

@@ -23,7 +23,7 @@ class TestBSGS(unittest.TestCase):
         self.assertIn(exp_x, xs)
 
     def test_bsgs_2(self):
-        primes = small_primes_generator(3000)
+        primes = small_primes_generator(100000) # Change this to increase/decrease duration of test
         del primes[0] # delete 2, all of these are trivial
         del primes[0] # delete 3
         del primes[0] # delte 5
@@ -40,3 +40,8 @@ class TestBSGS(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+# 10,000 - 243s
+# 20,000 - 475s
+# 50,000 - 1110s
+# 100,000 - 2235s

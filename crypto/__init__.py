@@ -14,6 +14,7 @@ from .cryptanalysis.small_primes_generator import small_primes_generator
 
 # Ciphers
 # Public Key Ciphers, the actual encryption and decryption, asymmetric key
+from .ciphers.public.rsa import rsa
 from .ciphers.public.diffie_hellman import diffie_hellman
 from .ciphers.public.el_gammal import el_gammal
 # Private Key Ciphers the actual encryption and decryption, symmetric key

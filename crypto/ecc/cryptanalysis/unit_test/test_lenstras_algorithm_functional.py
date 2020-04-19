@@ -8,7 +8,7 @@
 
 import time
 import unittest
-from crypto.cryptanalysis.lenstras_algorithm import lenstras_algorithm
+from crypto.ecc.cryptanalysis.lenstras_algorithm import lenstras_algorithm
 
 class TestLenstrasAlgorithm(unittest.TestCase):
     def test_lenstras_algorithm_functional_1(self):
