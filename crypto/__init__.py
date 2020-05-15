@@ -4,6 +4,9 @@ from .src.fast_power import fast_power
 from .src.legendre_symbol import legendre_symbol
 from .src.mod_inv import mod_inv # Modular Inverse
 from .src.mod_sqrt import mod_sqrt # Modular Square Root
+from .src.primality_test import primality_test # Miller-Rabin Primality Test
+from .src.prime_number_theorem import prime_number_theorem # Prime Number Theorem Computation
+from .src.num_primes import num_primes # Gives Approximate Number of Primes  Given A Range
 
 # Cryptanalysis Tools, code that is used ONLY to break ciphers
 from .cryptanalysis.crt import crt # Chinese Remainder Theorem
