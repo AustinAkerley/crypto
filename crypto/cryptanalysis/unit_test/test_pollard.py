@@ -17,6 +17,13 @@ class TestPollard(unittest.TestCase):
         print("p: "+str(p))
         self.assertEqual(expected_p, p)
 
+    def test_pollard_2(self):
+        N = 168441398857
+        p = pollard(N)
+        expected_p = 350437
+        print("p: "+str(p))
+        self.assertEqual(expected_p, p)
+
 
 if __name__ == '__main__':
     unittest.main()
