@@ -11,7 +11,7 @@ from crypto.src.prime_number_theorem import prime_number_theorem
 
 class TestPrimalityTest(unittest.TestCase):
     def test_primality_test_1(self):
-        prime_number_theorem(1000000000000001)
+        prime_number_theorem(50001)
 
 
 if __name__ == '__main__':
