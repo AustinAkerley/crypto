@@ -12,6 +12,7 @@ from crypto.cryptanalysis.small_primes_generator import small_primes_generator
 
 class TestModSqrt(unittest.TestCase):
     def test_mod_sqrt_1(self):
+        print("\n\nRunning test for src module: mod_sqrt")
         # test with prime 1 mod 8, where there is a sqrt for a
         m = 977
         orig_x = 745

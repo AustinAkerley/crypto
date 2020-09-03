@@ -12,6 +12,7 @@ from crypto.cryptanalysis.pohlig_hellman import pohlig_hellman
 
 class TestPohligHellman(unittest.TestCase):
     def test_pohlig_hellman_1(self):
+        print("\n\nRunning test for cryptanalysis module: pohlig_hellman")
         prime = 31 # 5 digit weak prime
         g = 2
         h = 8

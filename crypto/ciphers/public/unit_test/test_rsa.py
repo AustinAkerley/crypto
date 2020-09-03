@@ -11,6 +11,7 @@ import unittest
 
 class TestRSACipher(unittest.TestCase):
     def test_rsa_cipher_decrypt(self):
+        print("\n\nRunning test for cipher: rsa")
         p = 229
         q = 281
         e = 17389

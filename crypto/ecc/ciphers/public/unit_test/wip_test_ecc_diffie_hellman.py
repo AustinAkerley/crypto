@@ -7,11 +7,12 @@
 # Associated Book Page Nuber: 316
 
 import unittest
-from crypto.ecc.curve import curve
-from crypto.ciphers.public.ecc_diffie_hellman import ecc_diffie_hellman
+from crypto.ecc.src.curve import curve
+from crypto.ecc.ciphers.public.ecc_diffie_hellman import ecc_diffie_hellman
 
 class TestECCDiffieHellman(unittest.TestCase):
     def test_ecc_diffie_1(self):
+        print("\n\nRunning test for ecc cipher class: ecc_diffie_hellman")
         P = (920, 303)
         E = curve(324, 1287, 3851)
         diffie_A = ecc_diffie_hellman(E, P)

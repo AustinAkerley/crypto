@@ -11,6 +11,7 @@ from crypto.src.primality_test import primality_test
 
 class TestPrimalityTest(unittest.TestCase):
     def test_primality_test_1(self):
+        print("\n\nRunning test for src module: primality_test")
         certainty = 1000
         n = 13
         expected_is_prime = True

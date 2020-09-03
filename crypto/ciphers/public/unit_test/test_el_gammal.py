@@ -11,6 +11,7 @@ import unittest
 
 class TestElGammalCipher(unittest.TestCase):
     def test_el_gammal_cipher(self):
+        print("\n\nRunning test for cipher: el_gammal")
         print("el_gammal pub_key generation 1")
         BobEG1 = el_gammal(g=2, private_key=153,modulus=467)
         pub_key_1 = BobEG1.gen_public_key()

@@ -20,8 +20,6 @@ from .cryptanalysis.small_primes_generator import small_primes_generator
 from .ciphers.public.rsa import rsa
 from .ciphers.public.diffie_hellman import diffie_hellman
 from .ciphers.public.el_gammal import el_gammal
-# Private Key Ciphers the actual encryption and decryption, symmetric key
-from .ciphers.private.shift import shift # Substitution Cipher
 
 # Elliptic Curve Cryptography Utilities
 # ECC Source
@@ -29,7 +27,7 @@ from .ecc.src.curve import curve
 
 # ECC Cryptanalysis
 from .ecc.cryptanalysis.ecc_dlog_brute import ecc_dlog_brute # Elliptic Curve Cryptography Discrete Logarithm Brute Force Algorithm
-from .ecc.cryptanalysis.ecc_dlog_lsbs import ecc_dlog_lsbs # Elliptic Curve Cryptography Discrete Logarithm Little Step Big Step
+from .ecc.cryptanalysis.ecc_dlog_bsgs import ecc_dlog_bsgs # Elliptic Curve Cryptography Discrete Logarithm Little Step Big Step
 from .ecc.cryptanalysis.lenstras_algorithm import lenstras_algorithm
 
 #ECC Public Ciphers

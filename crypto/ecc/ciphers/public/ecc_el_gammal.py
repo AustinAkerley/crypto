@@ -19,7 +19,7 @@ class ecc_el_gammal:
         self.E = E
         self.style = ["whole point", "x only"]
         if isinstance(P, int):
-            y2 = (fast_power(P, 3, self.E.modulus).get("result") + (P*self.E.A) + self.E.B) % self.E.modulus
+            y2 = (fast_power(P, 3, self.E.modulus) + (P*self.E.A) + self.E.B) % self.E.modulus
             y = mod_sqrt(y2, self.E.modulus)[0]
             self.P = (P,mod_sqrt(y, self.E.modulus)[0])
         self.P = P
@@ -36,7 +36,7 @@ class ecc_el_gammal:
             self.E = E;
         if P is not None:
             if isinstance(P, int):
-                y2 = (fast_power(P, 3, self.E.modulus).get("result") + (P*self.E.A) + self.E.B) % self.E.modulus
+                y2 = (fast_power(P, 3, self.E.modulus) + (P*self.E.A) + self.E.B) % self.E.modulus
                 y = mod_sqrt(y2, self.E.modulus)[0]
                 self.P = (P,mod_sqrt(y, self.E.modulus)[0])
             self.P = P
@@ -58,13 +58,13 @@ class ecc_el_gammal:
             self.E = E
         if P is not None:
             if isinstance(P, int):
-                y2 = (fast_power(P, 3, self.E.modulus).get("result") + (P*self.E.A) + self.E.B) % self.E.modulus
+                y2 = (fast_power(P, 3, self.E.modulus) + (P*self.E.A) + self.E.B) % self.E.modulus
                 y = mod_sqrt(y2, self.E.modulus)[0]
                 self.P = (P,mod_sqrt(y, self.E.modulus)[0])
             self.P = P
         if QB is not None:
             if isinstance(QB, int):
-                y2 = (fast_power(QB, 3, self.E.modulus).get("result") + (QB*self.E.A) + self.E.B) % self.E.modulus
+                y2 = (fast_power(QB, 3, self.E.modulus) + (QB*self.E.A) + self.E.B) % self.E.modulus
                 y = mod_sqrt(y2, self.E.modulus)[0]
                 QB = (QB, mod_sqrt(y, self.E.modulus)[0])
 
@@ -86,11 +86,11 @@ class ecc_el_gammal:
         if QA is not None:
             self.QA = QA
         if isinstance(c1, int):
-            y2 = (fast_power(c1, 3, self.E.modulus).get("result") + (c1*self.E.A) + self.E.B) % self.E.modulus
+            y2 = (fast_power(c1, 3, self.E.modulus) + (c1*self.E.A) + self.E.B) % self.E.modulus
             y = mod_sqrt(y2, self.E.modulus)[0]
             c1 = (c1, y)
         if isinstance(c2, int):
-            y2 = (fast_power(c2, 3, self.E.modulus).get("result") + (c2*self.E.A) + self.E.B) % self.E.modulus
+            y2 = (fast_power(c2, 3, self.E.modulus) + (c2*self.E.A) + self.E.B) % self.E.modulus
             y = mod_sqrt(y2, self.E.modulus)[0]
             c2 = (c2, y)
 

@@ -60,7 +60,7 @@ class el_gammal:
         if None in [self.private_key, self.modulus, self.g]:
             return None
         else:
-            self.public_key = fast_power(self.g, self.private_key, self.modulus)["result"]
+            self.public_key = fast_power(self.g, self.private_key, self.modulus)
             return self.public_key
 
     def encrypt(self, message=None, g=None, public_key=None, modulus=None, k=None):
@@ -90,8 +90,8 @@ class el_gammal:
             else:
                 if None not in [self.g, self.public_key]:
                     self.message = message
-                    self.cipher_text_1 = fast_power(self.g, self.k, self.modulus)["result"]
-                    self.cipher_text_2 = (self.message*fast_power(self.public_key, self.k, self.modulus)["result"]) % self.modulus
+                    self.cipher_text_1 = fast_power(self.g, self.k, self.modulus)
+                    self.cipher_text_2 = (self.message*fast_power(self.public_key, self.k, self.modulus)) % self.modulus
                     return [self.cipher_text_1, self.cipher_text_2]
                 else:
                     print("g or public key is none")
@@ -112,7 +112,7 @@ class el_gammal:
             self.set_cipher_text_2(cipher_text_2)
 
         if None not in [self.private_key, self.g, self.modulus, self.cipher_text_1, self.cipher_text_2]:
-            x = mod_inv(fast_power(self.cipher_text_1, self.private_key, self.modulus)["result"], self.modulus)
+            x = mod_inv(fast_power(self.cipher_text_1, self.private_key, self.modulus), self.modulus)
             self.message = (x*self.cipher_text_2)%self.modulus
             return self.message
         else:

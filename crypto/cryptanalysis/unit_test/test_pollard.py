@@ -11,6 +11,7 @@ from crypto.cryptanalysis.pollard import pollard
 
 class TestPollard(unittest.TestCase):
     def test_pollard_1(self):
+        print("\n\nRunning test for cryptanalysis module: pollard")
         N = 13927189
         p = pollard(N)
         expected_p = 3823

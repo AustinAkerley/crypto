@@ -19,7 +19,7 @@ class ecc_diffie_hellman:
         self.style = ["whole point", "x only"]
         self.E = E;
         if isinstance(P, int):
-            y2 = (fast_power(P, 3, self.E.modulus).get("result") + (P*E.A) + E.B) % self.E.modulus
+            y2 = (fast_power(P, 3, self.E.modulus) + (P*E.A) + E.B) % self.E.modulus
             y = mod_sqrt(y2, self.E.modulus)[0]
             P = (P,y)
         self.P = P
@@ -57,7 +57,7 @@ class ecc_diffie_hellman:
         if None in [self.E, self.private_key]:
             return None;
         if isinstance(self.QB, int):
-            y2 = (fast_power(self.QB, 3, self.E.modulus).get("result") + (self.QB*self.E.A) + self.E.B) % self.E.modulus
+            y2 = (fast_power(self.QB, 3, self.E.modulus) + (self.QB*self.E.A) + self.E.B) % self.E.modulus
             y = mod_sqrt(y2, self.E.modulus)[0]
             self.QB = (self.QB, y)
         print("QB:")

@@ -13,6 +13,7 @@ from crypto.cryptanalysis.small_primes_generator import small_primes_generator
 
 class TestCRT(unittest.TestCase):
     def test_crt_1(self):
+        print("\n\nRunning test for cryptanalysis module: crt")
         ax_px0 = (1,5) # x = 1 (mod 5)
         ax_px1 = (9, 11) # x = 9 (mod 11)
         equivalencies = [ax_px0, ax_px1]
