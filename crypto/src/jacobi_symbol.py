@@ -1,4 +1,4 @@
-# Title: Quadratic Reciprocity
+# Title: Jacobi Symbol
 # Creator: Austin Akerley
 # Date Created: 09/09/2020
 # Last Editor: Austin Akerley
@@ -11,9 +11,9 @@
 
 # Formula: (a/b) = {-1, 0, 1}  1: a is a quadratic residue b, -1: a is a quadratic non-residue, 0: p divides a
 
-def quadratic_reciprocity(a, b):
+def jacobi_symbol(a, b):
     if b%2 == 0 or b<1:
-        raise ValueError("b must be odd and greater than 0")
+        raise ValueError("b must be odd and greater than 0 | b: "+str(b))
 
     result = None
     negative = False
