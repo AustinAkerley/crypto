@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Title: Unit Test for Quadratic Reciprocity
+# Title: Unit Test for JAcobi Symbol
 # Creator: Austin Akerley
 # Date Created: 09/09/2020
 # Last Editor: Austin Akerley
