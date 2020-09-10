@@ -1,4 +1,4 @@
-# Title: Little Step Big Step(lsbs) - Elliptic Curve Discrete Logarithm
+# Title: Baby Step Giant Step(bsgs) - Elliptic Curve Discrete Logarithm
 # Creator: Daniel Gerthe
 # Date Created: 12/28/2019
 # Last Editor: Austin Akerley
@@ -15,7 +15,7 @@ import random
 import math
 from crypto.ecc.src.curve import curve
 
-def ecc_dlog_lsbs(P, R, E):
+def ecc_dlog_bsgs(P, R, E):
     dict1 = {}
     dict2 = {}
     n = None

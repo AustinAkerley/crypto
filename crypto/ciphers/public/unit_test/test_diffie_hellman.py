@@ -11,6 +11,7 @@ from crypto.ciphers.public.diffie_hellman import diffie_hellman
 
 class TestDiffieHellman(unittest.TestCase):
     def test_diffie_hellman_1(self):
+        print("\n\nRunning test for cipher: diffie_hellman")
         A = diffie_hellman(g=627, private_key=347, p=941)
         B = diffie_hellman(g=627, private_key=781, p=941)
         print("A: " + str(A.A)+" | B: " + str(B.A))

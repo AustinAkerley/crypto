@@ -11,6 +11,7 @@ from crypto.src.mod_inv import mod_inv
 
 class TestModInv(unittest.TestCase):
     def test_mod_inv_1(self):
+        print("\n\nRunning test for src module: mod_inv")
         a = 5
         m = 7
         b = 3
@@ -31,12 +32,6 @@ class TestModInv(unittest.TestCase):
     def test_mod_inv_4(self):
         a = 173920
         m = 100207
-        with self.assertRaises(ValueError):
-            self.assertEqual(mod_inv(a, m), b)
-
-    def test_mod_inv_5(self):
-        a = 0
-        m = 7
         with self.assertRaises(ValueError):
             self.assertEqual(mod_inv(a, m), b)
 

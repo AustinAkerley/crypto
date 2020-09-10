@@ -11,6 +11,7 @@ from crypto.src.fast_power import fast_power
 
 class TestFastPower(unittest.TestCase):
     def test_fast_power_1(self):
+        print("\n\nRunning test for src module: fast_power")
         x = 3
         e = 218
         m = 1000
@@ -37,13 +38,6 @@ class TestFastPower(unittest.TestCase):
         m = 7234592359
         result = 1
         self.assertEqual(fast_power(x, e, m), result)
-
-    def test_fast_power_5(self):
-        x = 11
-        e = 7234592359
-        m = 7234592359
-        result = 0
-        self.assertEqual(fast_power(x, e, m), result)
-
+        
 if __name__ == '__main__':
     unittest.main()

@@ -11,6 +11,7 @@ from crypto.src.legendre_symbol import legendre_symbol
 
 class TestLegendreSymbol(unittest.TestCase):
     def test_legendre_symbol_1(self):
+        print("\n\nRunning test for src module: legendre_symbol")
         p = 83
         a = 80
         expected = -1

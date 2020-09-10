@@ -24,7 +24,7 @@ def lenstras_algorithm(n): # n is a composite number of two large primes, p and 
         B = ((b*b)%n - (a*a*a)%n - A * a) % n
         E = curve(A, B, n)
         P = (a,b)
-        print("New Curve {"+str(i)+"}")
+        #print("New Curve {"+str(i)+"}")
         for X in range(2, int(log2(n))):
             Q = E.multiply(P, X) # The internals of this will exit() the program and create a divisors of n file in the same directory this was launched
             P = Q

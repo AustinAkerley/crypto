@@ -12,6 +12,7 @@ from crypto.cryptanalysis.naive_factor import naive_factor
 
 class TestNaiveFactor(unittest.TestCase):
     def test_naive_factor_functional_1(self):
+        print("\n\nRunning test for cryptanalysis module: naive_factor")
         h = 523854
         expected_prime_factors = [2, 3, 3, 3, 89, 109]
         prime_factors = naive_factor(h).get("prime_factors")

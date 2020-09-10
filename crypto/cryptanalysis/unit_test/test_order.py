@@ -12,6 +12,7 @@ from crypto.cryptanalysis.order import order
 
 class TestOrder(unittest.TestCase):
     def test_order_functional_1(self):
+        print("\n\nRunning test for cryptanalysis module: order")
         generator = 9704
         modulus = 17389
         expected_order = 1242

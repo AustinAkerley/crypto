@@ -11,10 +11,11 @@ from crypto.src.num_primes import num_primes
 
 class TestNumPrimes(unittest.TestCase):
     def test_num_primes_1(self):
+        print("\n\nRunning test for src module: num_primes")
         apprx_primes = num_primes(900000, 1000000)
         expected_apprx_primes = 6738
         self.assertEqual(apprx_primes, expected_apprx_primes)
-        
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -7,10 +7,11 @@
 # Associated Book Page Nuber: 299
 
 import unittest
-from crypto.ecc.curve import curve
+from crypto.ecc.src.curve import curve
 
 class TestCurve(unittest.TestCase):
     def test_curve_add_functional_1(self):
+        print("\n\nRunning test for ecc src module: curve")
         my_curve = curve(3,8,13)
         P = (9,7)
         Q = (1,8)
@@ -69,7 +70,7 @@ class TestCurve(unittest.TestCase):
         for i in range (1,3623):
             Q = my_curve.add(P, Q)
             points.append(Q)
-            
+
     def test_curve_is_point_on_curve_functional_2(self):
         my_curve = curve(14,19,3623)
         P = (6,730)

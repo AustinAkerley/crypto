@@ -15,6 +15,7 @@ from crypto.cryptanalysis.small_primes_generator import small_primes_generator
 
 class TestBSGS(unittest.TestCase):
     def test_bsgs_1(self): # Book Example
+        print("\n\nRunning test for cryptanalysis module: bsgs")
         g = 9704
         exp_x =1159
         p = 17389
@@ -23,7 +24,7 @@ class TestBSGS(unittest.TestCase):
         self.assertIn(exp_x, xs)
 
     def test_bsgs_2(self):
-        primes = small_primes_generator(100000) # Change this to increase/decrease duration of test
+        primes = small_primes_generator(1000) # Change this to increase/decrease duration of test
         del primes[0] # delete 2, all of these are trivial
         del primes[0] # delete 3
         del primes[0] # delte 5

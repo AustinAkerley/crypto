@@ -50,7 +50,7 @@ class diffie_hellman: #The major return value of this class is the symmetric_key
         if private_key is not None: self.set_private_key(private_key)
         if p is not None: self.set_modulus(p)
         if None not in (self.g, self.private_key, self.p):
-            self.A = fast_power(self.g, self.private_key, self.p)["result"]
+            self.A = fast_power(self.g, self.private_key, self.p)
             return self.A
         else:
             return None
@@ -63,7 +63,7 @@ class diffie_hellman: #The major return value of this class is the symmetric_key
         if private_key is not None: self.set_private_key(private_key)
         if p is not None: self.set_modulus(p)
         if None not in (self.B, self.private_key, self.p):
-            self.symmetric_key = fast_power(self.B, self.private_key, self.p)["result"]
+            self.symmetric_key = fast_power(self.B, self.private_key, self.p)
             return self.symmetric_key
         else:
             return None

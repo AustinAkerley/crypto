@@ -7,11 +7,12 @@
 # Associated Book Page Nuber: 310
 
 import unittest
-from crypto.ecc.curve import curve
-from crypto.cryptanalysis.ecc_dlog_brute import ecc_dlog_brute
+from crypto.ecc.src.curve import curve
+from crypto.ecc.cryptanalysis.ecc_dlog_brute import ecc_dlog_brute
 
 class TestECCDLogBrute(unittest.TestCase):
     def test_brute_ecc_dlog_functional_1(self):
+        print("\n\nRunning test for ecc cryptanalysis module: ecc_dlog_brute")
         E = curve(8,7,73);
         P = (32 , 53)
         R = (39, 17)

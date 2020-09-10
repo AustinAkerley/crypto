@@ -18,8 +18,6 @@
 def eea(x, y):
     if x <= 0 or y <= 0:
         raise ValueError("x or y cannot be 0 or less")
-    elif x > y: # Error Handling
-        raise ValueError("x cannot be larger than y")
 
     starting_x = x
     starting_y = y
