@@ -13,7 +13,7 @@ import random
 from crypto.src.fast_power import fast_power
 from crypto.src.eea import eea
 
-def primality_test(n, certainty=1000): #returns true if n is prime, if composite returns false
+def primality_test(n, certainty=10000): #returns true if n is prime, if composite returns false
     if not isinstance(n,int): raise ValueError("n cannot be anything but an int you gave: "+str(type(n)))
     elif n < 1:  raise ValueError("n cannot be less than 0")
     elif n == 1: return True

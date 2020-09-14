@@ -8,6 +8,7 @@ from .src.primality_test import primality_test # Miller-Rabin Primality Test
 from .src.prime_number_theorem import prime_number_theorem # Prime Number Theorem Computation
 from .src.num_primes import num_primes # Gives Approximate Number of Primes  Given A Range
 from .src.jacobi_symbol import jacobi_symbol # Returns the jacobi symbol of 2 numbers
+from .src.random_prime import random_prime
 
 # Cryptanalysis Tools, code that is used ONLY to break ciphers
 from .cryptanalysis.crt import crt # Chinese Remainder Theorem
