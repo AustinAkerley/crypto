@@ -19,11 +19,11 @@ class TestRSASignature(unittest.TestCase):
         new_signature = rsa_sig(p, q)
         new_signature.gen_e()
         e = new_signature.e
-        signature = new_signature.sign("example_doc.txt")
+        signature = new_signature.sign("./crypto/signatures/unit_test/example_doc.txt")
 
         signature_verifier = rsa_sig()
         is_signature_valid = signature_verifier.verify(signature, "example_doc.txt", e, N)
-        self.assertEqual(is_signature_valid, False)
+        self.assertEqual(is_signature_valid, True)
 
     def test_rsa_signature_2(self):
         print("\n\nRunning test for cipher: rsa_sig")
@@ -36,7 +36,7 @@ class TestRSASignature(unittest.TestCase):
         signature = new_signature.sign("example_doc.txt")
 
         signature_verifier = rsa_sig()
-        is_signature_valid = signature_verifier.verify(signature, "example_doc_bad.txt", e, N)
+        is_signature_valid = signature_verifier.verify(signature, "./crypto/signatures/unit_test/example_doc_bad.txt", e, N)
         self.assertEqual(is_signature_valid, False)
 
 if __name__ == '__main__':
