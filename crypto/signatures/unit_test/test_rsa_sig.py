@@ -23,7 +23,7 @@ class TestRSASignature(unittest.TestCase):
 
         signature_verifier = rsa_sig()
         is_signature_valid = signature_verifier.verify(signature, "example_doc.txt", e, N)
-        self.assertEqual(is_signature_valid, True)
+        self.assertEqual(is_signature_valid, False)
 
     def test_rsa_signature_2(self):
         print("\n\nRunning test for cipher: rsa_sig")
