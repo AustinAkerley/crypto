@@ -9,6 +9,7 @@ from crypto.src.fast_power import fast_power
 from crypto.src.eea import eea
 from crypto.src.mod_inv import mod_inv
 from crypto.src.random_prime import random_prime
+from hashlib import md5
 import random
 
 class rsa_sig:
@@ -18,7 +19,7 @@ class rsa_sig:
         self.e = e
         self.N = N
         if None not in [self.p, self.q] and N is None:
-            self.N = p *
+            self.N = p * q
 
     def set_p(self, p):
         self.p = p
@@ -31,9 +32,6 @@ class rsa_sig:
 
     def set_pub_key(self, N):
         self.N = N
-
-    def get_N(self):
-        return N
 
     def set_e(self, e):
         if self.q is None or self.p is None:
@@ -57,11 +55,49 @@ class rsa_sig:
         while (e != 0 and eea(e, (self.p-1)*(self.q-1)).get("gcd") != 1):
             e = random.randint(3, (p-1)*(q-1))
         self.e = e
+        self.gen_d()
         return e
 
     def gen_d(self):
-        self.d = mod_inv(self.e % ((self.p-1)*(self.q-1)/g), (self.p-1)*(self.q-1)/g)
+        self.d = mod_inv(self.e % ((self.p-1)*(self.q-1)), (self.p-1)*(self.q-1))
 
     def publish_public_info(self):
         print("e: "+str(self.e) + " | N: " + str(self.N))
         return {"e" : self.e, "N" : self.N}
+
+    def md5_doc(self, doc):
+        md5_hash = md5()
+
+        file_to_sign = open(doc, "rb")
+        file_content = file_to_sign.read()
+        file_to_sign.close()
+        md5_hash.update(file_content)
+
+        hash = md5_hash.hexdigest()
+        return hash
+
+    def sign(self, doc, d=None):
+        if d is not None:
+            self.d = d
+
+        hash = self.md5_doc(doc)
+        signature = fast_power(hash, self.d, self.N)
+
+        return signature
+
+    def verify(self, signature, doc, e=None, N=None):
+        if e is not None:
+            self.e = e
+        if N is not None:
+            self.N = N
+
+        signature_verif = fast_power(signature, self.e, self.N)
+        hash = self.md5_doc(doc)
+
+        if(hash==signature_verif):
+            return True
+        else:
+            print("Signature did not match!")
+            print("Signature On Given File  : "+str(hash))
+            print("Signature From Sender    : "+str(signature_verif))
+            return False
