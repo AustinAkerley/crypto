@@ -44,7 +44,7 @@ class rsa_sig:
     def gen_keys(self, N_num_bits):
         self.p = random_prime(int(N_num_bits/2))
         self.q = random_prime(int(N_num_bits/2))
-        self.N = self.p * self.q 
+        self.N = self.p * self.q
 
     def gen_e(self, p = None, q = None):
         if (p is not None):
