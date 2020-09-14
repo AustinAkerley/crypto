@@ -36,7 +36,7 @@ class TestBSGS(unittest.TestCase):
                     expected_x = random.randint(1, prime-1)
                     h = fast_power(g, expected_x, prime)
                     xs = bsgs(g, h, prime)
-                    print(" | prime: "+str(prime) + " | g: "+str(g) + " | exp_x: "+str(expected_x)+" | h: "+str(h)+ " | xs: " + str(xs))
+                    #print(" | prime: "+str(prime) + " | g: "+str(g) + " | exp_x: "+str(expected_x)+" | h: "+str(h)+ " | xs: " + str(xs))
                     self.assertIn(expected_x, xs)
 
 if __name__ == '__main__':
